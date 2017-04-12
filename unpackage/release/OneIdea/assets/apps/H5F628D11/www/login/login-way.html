@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>登录注册</title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+</head>
+<body>
+    <div class="mui-content">
+        <div class="logo">
+           LOGO
+        </div>
+        <button class="mui-btn mui-btn-block action register" id="register">注册</button>
+        <button class="mui-btn mui-btn-block login" id="login">登录</button>
+        <div class="other">
+        	<div class="other-type" id="qq">
+        		<i class="icon iconfont icon-QQ"></i>
+        		<p>QQ</p>
+        	</div>
+        	<div class="other-type" id="weibo">
+        		<i class="icon iconfont icon-zliconweibo01"></i>
+        		<p>微博</p>
+        	</div>
+        	<div class="other-type" id="wechat">
+        		<i class="icon iconfont icon-iconfontweixin"></i>
+        		<p>微信</p>
+        	</div>
+        </div>
+    </div>
+    <script src="../js/mui.min.js"></script>
+    <script>
+        mui.init();
+        mui.plusReady(function() {
+            document.getElementById('register').addEventListener('tap',function(){
+                mui.openWindow({
+                    url: 'register.html',
+                    id: 'register.html',
+                    waiting: {
+                        autoShow: false
+                    }
+                });
+            });
+            document.getElementById('login').addEventListener('tap',function(){
+                mui.openWindow({
+                    url: '../login.html',
+                    id: 'login.html',
+                    waiting: {
+                        autoShow: false
+                    }
+                });
+            });            
+        });
+    </script>
+</body>
+</html>

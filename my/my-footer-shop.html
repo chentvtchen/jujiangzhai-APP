@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的足记-店铺</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
+	</head>
+
+	<body>
+		<div class="mui-content mui-scroll-wrapper " id="pullrefresh">
+			<div class="mui-scroll">
+				<div class="footer-time">
+					2017年4月10日    12点30分
+					<span>拜访了</span>
+				</div>
+				<div class="shop-item">
+					<div class="shop-item-img">
+						<img src="../img/cixiushop.jpg" />
+					</div>
+					<div class="shop-item-info">
+						<h4>挥斥方琼</h4>
+						<span class="mui-icon mui-icon-location"></span>
+						<span class="city">南京</span>
+						<span class="shop-type">刺绣</span>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						contentrefresh: "正在刷新...",
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			var page = 1;
+			var requestEnd = false;
+			//			getArticleList(page);
+			mui.plusReady(function() {
+				var timerid = setInterval(function() {
+					if (requestEnd) {
+						clearInterval(timerid);
+						plus.nativeUI.closeWaiting();
+					}
+				}, 20);
+				var newsDiv = document.body.querySelector('.news-list');
+				//全部资讯
+				//				mui('.news-list').on('tap', '.news-item', function(e) {
+				//					var artid = this.id,
+				//						title = this.getElementsByClassName('news-title')[0].innerHTML;
+				//					mui.openWindow({
+				//						id: 'news-page',
+				//						url: '../news/news-page.html',
+				//						extras: {
+				//							artid: artid,
+				//							title: title
+				//						},
+				//						show: {
+				//							aniShow: 'pop-in'
+				//						},
+				//						waiting: {
+				//							autoShow: false
+				//						}
+				//					});
+				//				});
+			});
+			//获取全部资讯数据
+			//			function getArticleList(pullaction) {
+			//				var newsDiv = document.body.querySelector('.news-list');
+			//				var isEnd = false;
+			//				mui.ajax(curMainUrl, {
+			//					data: {
+			//						action: 'getarticleBylbid',
+			//						pageSize: page,
+			//						limit: 10,
+			//						lbid: '-1'
+			//					},
+			//					type: 'post',
+			//					dataType: 'json',
+			//					success: function(data) {
+			//						//当前页列表返回为空
+			//						if (data.length == 0) {
+			//							if (page == 1) {
+			//								newsDiv.innerHTML = '<div style="text-align: center;margin-top: 15px;">当前没有数据哦 凸^-^凸</div>';
+			//							} else {
+			//								plus.nativeUI.toast('已经没有更多资讯了哦 ^_^');
+			//								isEnd = true;
+			//							}
+			//						} else {
+			//							if (pullaction == 'down') //下拉刷新，则先清空
+			//								newsDiv.innerHTML = '';
+			//							for (var i = 0; i < data.length; i++) {
+			//								var div = document.createElement('div');
+			//								div.id = data[i].articleId;
+			//								div.className = 'news-item';
+			//								div.innerHTML = '<div class="news-content"><div class="news-content-info"><div class="news-title"><span class="news-type">' + data[i].lbName + '</span>' + data[i].topic + '</div><div class="news-word">' + data[i].zy + '</div></div><div class="news-content-img"><img src="' + data[i].img + '" /></div><div class="mui-clearfix"></div></div>';
+			//								newsDiv.appendChild(div);
+			//							}
+			//							haveimg();
+			//							page++; //当前页码+1
+			//						}
+			//					},
+			//					error: function(xhr, type, errorThrown) {
+			//						plus.nativeUI.toast('获取信息失败');
+			//					},
+			//					complete: function() {
+			//						requestEnd = true;
+			//						if (pullaction == 'up')
+			//							mui('#pullrefresh').pullRefresh().endPullupToRefresh(isEnd);
+			//						else if (pullaction == 'down')
+			//							mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+			//					}
+			//				});
+			//			}
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					page = 1;
+					mui('#pullrefresh').pullRefresh().refresh(true);
+					getArticleList('down');
+				}, 1000);
+			}
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					getArticleList('up');
+				}, 1000);
+			}
+		</script>
+	</body>
+
+</html>

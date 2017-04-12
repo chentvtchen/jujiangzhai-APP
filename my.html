@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="my">
+				<div class="my-img">
+					<img src="img/touxiang.png" />
+				</div>
+				<div class="my-name">
+					未登录
+				</div>
+			</div>
+			<ul class="mui-table-view mui-table-view-chevron service">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="icon iconfont icon-dingyue"></span>个人资料
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="book">
+					<a class="mui-navigate-right">
+						<span class="icon iconfont icon-unie646"></span>我的收藏
+					</a>
+				</li>
+				<li class="mui-table-view-cell" id="footer">
+					<a class="mui-navigate-right">
+						<span class="icon iconfont icon-biaoqian"></span>我的足迹
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-table-view-chevron service">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="icon iconfont icon-wrench"></span>密码修改
+					</a>
+				</li>				
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="icon iconfont icon-liebiao-copy"></span>问题反馈
+					</a>
+				</li>
+			</ul>
+			<button id="logout" class="mui-btn-block mui-btn mui-btn-red">退出登录</button>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init();
+			mui.plusReady(function() {
+				document.getElementById('logout').addEventListener('tap', function() {
+					plus.nativeUI.toast('注销成功');
+					mui.openWindow({
+						url: 'login/login-way.html',
+						id: 'login-way',
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				})
+				document.getElementById('book').addEventListener('tap',function(){
+					mui.openWindow({
+						url: 'my/my-book-head.html',
+						id: 'my-book-head',
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});					
+				})
+				document.getElementById('footer').addEventListener('tap',function(){
+					mui.openWindow({
+						url: 'my/my-footer-head.html',
+						id: 'my-footer-head',
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});					
+				})				
+			});
+		</script>
+	</body>
+
+</html>

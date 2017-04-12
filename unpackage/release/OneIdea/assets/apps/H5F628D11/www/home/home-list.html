@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>全部资讯</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
+	</head>
+
+	<body>
+		<div class="mui-content all mui-scroll-wrapper news-part" id="pullrefresh">
+			<div class="mui-scroll news-list">
+				<div class="news-item">
+					<div class="news-content">
+						<div class="news-content-info">
+							<div class="news-item-type">
+								<span class="news-item-type-word">来自话题：完美</span>
+								<span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
+								<div class="mui-clearfix"></div>
+							</div>
+							<div class="news-title">认为只有我完美了，别人才会喜欢我的想法有什么错误</div>
+							<div class="news-word">只是自卑罢了。因为从小就经历痛苦的事，所以一直都以为痛苦是正常的。我上学的时候，同学都有爸爸妈妈接送。而我没有，我觉得很奇怪。他们为什么会有爸爸妈妈接送，都那么大了，是不是太矫情了。直到有一天，下着雨，我一个踉跄跌在水坑里，一身泥。被一个路过的阿姨拉起来。她抹开我脸上的泥水，她说，这是谁家的姑娘啊，怎么下雨了爸爸妈妈也不接你了。我不太敢和陌生人说话，没吱声。那个阿姨又问我，你多大了。我瑟缩着回答，说，六岁。那个阿姨揉着我的脑袋， 说，才六岁啊，这么小。原来我才六岁，六岁还是一个孩子。我想。
+							</div>
+						</div>
+						<div class="news-content-img">
+							<img src="" />
+						</div>
+						<div class="mui-clearfix"></div>
+					</div>
+				</div>
+				<div class="news-item">
+					<div class="news-content">
+						<div class="news-content-info">
+							<div class="news-item-type">
+								<span class="news-item-type-word">来自话题：完美</span>
+								<span class="mui-pull-right mui-icon mui-icon-closeempty"></span>
+								<div class="mui-clearfix"></div>
+							</div>
+							<div class="news-title">认为只有我完美了，别人才会喜欢我的想法有什么错误</div>
+							<div class="news-word">只是自卑罢了。因为从小就经历痛苦的事，所以一直都以为痛苦是正常的。我上学的时候，同学都有爸爸妈妈接送。而我没有，我觉得很奇怪。他们为什么会有爸爸妈妈接送，都那么大了，是不是太矫情了。直到有一天，下着雨，我一个踉跄跌在水坑里，一身泥。被一个路过的阿姨拉起来。她抹开我脸上的泥水，她说，这是谁家的姑娘啊，怎么下雨了爸爸妈妈也不接你了。我不太敢和陌生人说话，没吱声。那个阿姨又问我，你多大了。我瑟缩着回答，说，六岁。那个阿姨揉着我的脑袋， 说，才六岁啊，这么小。原来我才六岁，六岁还是一个孩子。我想。
+							</div>
+						</div>
+						<div class="news-content-img">
+							<img src="" />
+						</div>
+						<div class="mui-clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						contentrefresh: "正在刷新...",
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			var page = 1;
+			var requestEnd = false;
+//			getArticleList(page);
+			mui.plusReady(function() {
+				var timerid = setInterval(function() {
+					if (requestEnd) {
+						clearInterval(timerid);
+						plus.nativeUI.closeWaiting();
+					}
+				}, 20);
+				var newsDiv = document.body.querySelector('.news-list');
+				//全部资讯
+//				mui('.news-list').on('tap', '.news-item', function(e) {
+//					var artid = this.id,
+//						title = this.getElementsByClassName('news-title')[0].innerHTML;
+//					mui.openWindow({
+//						id: 'news-page',
+//						url: '../news/news-page.html',
+//						extras: {
+//							artid: artid,
+//							title: title
+//						},
+//						show: {
+//							aniShow: 'pop-in'
+//						},
+//						waiting: {
+//							autoShow: false
+//						}
+//					});
+//				});
+			});
+			//获取全部资讯数据
+//			function getArticleList(pullaction) {
+//				var newsDiv = document.body.querySelector('.news-list');
+//				var isEnd = false;
+//				mui.ajax(curMainUrl, {
+//					data: {
+//						action: 'getarticleBylbid',
+//						pageSize: page,
+//						limit: 10,
+//						lbid: '-1'
+//					},
+//					type: 'post',
+//					dataType: 'json',
+//					success: function(data) {
+//						//当前页列表返回为空
+//						if (data.length == 0) {
+//							if (page == 1) {
+//								newsDiv.innerHTML = '<div style="text-align: center;margin-top: 15px;">当前没有数据哦 凸^-^凸</div>';
+//							} else {
+//								plus.nativeUI.toast('已经没有更多资讯了哦 ^_^');
+//								isEnd = true;
+//							}
+//						} else {
+//							if (pullaction == 'down') //下拉刷新，则先清空
+//								newsDiv.innerHTML = '';
+//							for (var i = 0; i < data.length; i++) {
+//								var div = document.createElement('div');
+//								div.id = data[i].articleId;
+//								div.className = 'news-item';
+//								div.innerHTML = '<div class="news-content"><div class="news-content-info"><div class="news-title"><span class="news-type">' + data[i].lbName + '</span>' + data[i].topic + '</div><div class="news-word">' + data[i].zy + '</div></div><div class="news-content-img"><img src="' + data[i].img + '" /></div><div class="mui-clearfix"></div></div>';
+//								newsDiv.appendChild(div);
+//							}
+//							haveimg();
+//							page++; //当前页码+1
+//						}
+//					},
+//					error: function(xhr, type, errorThrown) {
+//						plus.nativeUI.toast('获取信息失败');
+//					},
+//					complete: function() {
+//						requestEnd = true;
+//						if (pullaction == 'up')
+//							mui('#pullrefresh').pullRefresh().endPullupToRefresh(isEnd);
+//						else if (pullaction == 'down')
+//							mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+//					}
+//				});
+//			}
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					page = 1;
+					mui('#pullrefresh').pullRefresh().refresh(true);
+					getArticleList('down');
+				}, 1000);
+			}
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					getArticleList('up');
+				}, 1000);
+			}
+		</script>
+	</body>
+
+</html>

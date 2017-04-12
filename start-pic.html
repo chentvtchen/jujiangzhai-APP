@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ 
+    <head>
+        <meta charset="utf-8">
+        <title>启动图页面</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+ 
+        <link rel="stylesheet" href="css/mui.min.css">
+    </head>
+ 
+    <body>
+        <div id="startpic" class=" mui-fullscreen">
+            <div class="start-pic"  style="width: 100%;height: 100%;overflow: hidden;" >
+                <img id="pic" src="img/3.jpg" style="width: 100%;" >
+            </div>
+         </div>
+            <script src="js/mui.min.js"></script>
+            <script src="js/all.js"></script>
+            <script>
+            mui.init();
+                mui.plusReady(function() {
+                	plus.navigator.closeSplashscreen();
+					var index = mui.preload({
+					    url: 'index.html',
+					    id: 'index'
+					});
+					//启动图片判断
+
+                    setTimeout(function(){
+                        mui.openWindow({
+                            url: 'index.html',
+                            id: 'index',
+                            show:{
+                              aniShow:'"zoom-out'//页面显示动画，默认为”slide-in-right“；
+                            },
+                            waiting: {
+                                autoShow: false
+                            }
+                        });
+                    },3000);
+                });
+            </script>
+    </body>
+ 
+</html>

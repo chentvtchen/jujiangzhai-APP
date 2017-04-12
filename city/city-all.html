@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>城市列表</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">城市</h1>
+		</header>		
+		<div class="mui-content">
+			<div class="city-item">
+				南京
+			</div>
+			<div class="city-item">
+				镇江
+			</div>
+			<div class="city-item">
+				苏州
+			</div>	
+			<div class="city-item">
+				扬州
+			</div>		
+			<div class="city-item">
+				杭州
+			</div>	
+			<div class="city-item">
+				乌镇
+			</div>
+			<div class="city-item">
+				丽江
+			</div>
+			<div class="city-item">
+				上海
+			</div>	
+			<div class="city-item">
+				北京
+			</div>	
+			<div class="city-item">
+				成都
+			</div>	
+			<div class="city-item">
+				广州
+			</div>	
+			<div class="city-item">
+				武汉
+			</div>	
+			<div class="city-item">
+				西安
+			</div>	
+			<div class="city-item">
+				深圳
+			</div>	
+			<div class="city-item">
+				青岛
+			</div>	
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			var page = 1;
+			var requestEnd = false;
+//			getArticleList(page);
+			mui.plusReady(function() {
+				mui('.mui-content').on('tap', '.city-item', function(e) {
+					var title = this.innerText;
+					mui.openWindow({
+						id: 'city-sigle-head',
+						url: 'city-sigle-head.html',
+						extras: {
+							title: title
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});						
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,631 @@
+html,body {
+	background-color: #ededed;
+}
+textarea{
+	border-radius: 0px;
+	border: none;
+	padding-left: 10px;
+	margin-bottom: 0px;
+}
+input[type=text]{
+	border-radius: 0px;
+	border: none;
+	padding-left: 10px;
+	margin-bottom: 1px;	
+}
+.login-box h3{
+	text-align: center;
+	font-size: 16px;
+	font-weight: 500;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.login-box input{
+	border: none;
+	border-bottom: 1px solid #333;
+	width: 90%;
+	margin-left: 5%;
+}
+.mui-content{
+	background-color: #ededed;
+}
+.mui-btn-block{
+	width: 80%;
+	padding: 12px 0px;
+	margin-left: 10%;
+	font-size: 16px;
+	border: none;
+}
+.mui-action-back{
+	color: #fff;
+}
+.action{
+	background-color: #4ec5b1;
+	color: #fff;
+	margin-top: 30px;
+}
+.action:enabled:active{
+	background-color:#00BCD4;
+}
+.mui-bar{
+	background-color: #212121;
+}
+nav.mui-bar{
+	background-color: #fff;
+}
+.mui-title{
+	color: #fff;
+}
+.mui-input-row label{
+	width: 18%;
+}
+.mui-input-row label~input{
+	width: 82%;
+}
+.mui-bar-tab .mui-tab-item.mui-active{
+	color: #212121;
+}
+.white{
+	color: #fff;
+}
+.change-school label~select{
+	width: 82%;
+}
+
+/*index.html*/
+/*******************************************************/
+.logo{
+	width: 123px;
+	margin: 0px auto;
+	margin-top: 80px;
+	margin-bottom: 100px;
+	font-size: 30px;
+	font-weight: 700;
+	text-align: center;
+}
+.login{
+	background-color: #9ccc65;
+	color: #fff;
+	margin-top: 20px;
+}
+.login:enabled:active{
+	background-color: #2baf2b;
+}
+.other{
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	margin-top: 60px;
+}
+.other .other-type{
+	width: 33.3%;
+	float: left;
+	text-align: center;
+	margin-top: 15px;
+}
+.other .other-type i{
+	font-size: 30px;
+	color: #444444;
+}
+.other .other-type p{
+	margin-top: 10px;
+	color: #444444;
+	font-size: 14px;
+}
+.footer{
+	text-align: center;
+	font-size: 14px;
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+}
+
+/*reginster.html*/
+/*******************************************************/
+.mui-input-row label{
+	color: #888;
+	font-size: 12px;
+	padding: 10px 15px;
+}
+.mui-input-row label i{
+	font-size:16px;
+}
+.get-code{
+	color: #fff;
+	background-color: #00BCD4;
+	width: 80px;
+	position: absolute;
+	right: 10px;
+	font-size: 12px;
+	padding: 2px;
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 7.5px;
+	border: none;
+}
+.register-button{
+	margin-top: 60px;
+	text-align: center;
+}
+.register-button p{
+	margin-top: 40px;
+}
+.signin{
+	color: #00BCD4;
+}
+/*forget-password.html*/
+/**************************************************/
+.forget-password{
+	color: #00BCD4;
+}
+
+
+/*index.html*/
+/*******************************************************/
+.mui-bar-tab a span.icon{
+	font-size: 18px;
+	height: 19px;
+	margin-top: 5px;
+}
+.mui-bar-tab a span.icon-jia1{
+	font-size: 19px;
+	margin-top: 8px;
+}
+.mui-bar-tab a span.icon-guanbi1{
+	font-size: 32px;
+	margin-top: -6px;
+	z-index: 18;
+}
+.mui-bar-tab a  span{
+	display: block;
+	font-size: 12px;
+}
+/*news-index.html*/
+/*******************************************************/
+.tab-nav.mui-segmented-control.mui-segmented-control-inverted 
+.mui-control-item.mui-active{
+	color: #00BCD4;
+	border-bottom: 1px solid #00BCD4;
+}
+/*my.html*/
+/*******************************************************/
+.my-infomation .infomation{
+	margin-top: 1px;
+}
+.my-infomation-head{
+	background-color: #fff;
+	padding: 10px;
+	padding-bottom: 0px;
+}
+.my-infomation-head-img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	overflow: hidden;
+	float: left;
+}
+.my-infomation-head-img img{
+	width: 100%;
+}
+.my-infomation-head-content .school{
+	font-size: 14px;
+	color: #666;
+}
+.message-mail .circle{
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;	
+	background-color: red;	
+	float: left;
+	margin-top: 4px;
+	margin-left: 5px;
+	display: none;
+}
+.my-infomation-num{
+	background-color: #fff;
+	text-align: center;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 10px;
+}
+.my-infomation-num-item{
+	width: 30%;
+	float: left;
+	margin-left: 1.6%;
+}
+.my-infomation-num-item span{
+	display: block;
+	color: #666;
+	font-size: 14px;
+}
+.service{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 16px;
+}
+.message{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 16px;
+}
+.service .mui-table-view-cell,.message .mui-table-view-cell{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.service span.icon,.message span.icon{
+	margin-right: 5px;
+	color: #666;
+}
+.num{
+	margin-left: 10px;
+	font-size: 14px;
+	color: #888;
+}
+
+/*my-follow-list.html*/
+/*******************************************************/
+.follow .my-infomation{
+	margin-bottom:1px;
+}
+.follow .my-infomation-head{
+	padding-bottom: 0px;
+	position: relative;
+}
+.follow .my-infomation-head .action{
+	position: absolute;
+	right: 0px;
+	top: 10px;
+	margin-top: 0px;
+	padding-top: 4px;
+	padding-bottom: 5px;
+	font-size: 12px;
+	border: none;
+}
+.home{
+	color: #fff;
+}
+.home .name{
+	display: inline;
+	font-size: 20px;
+	font-weight: 500;
+	position: absolute;
+	top: 10px;
+}
+.search{
+	background-color:#fff ;
+	height:35px ;
+	margin-top: 5px;
+	margin-left: 35px;
+	position: relative;
+}
+.search input{
+	height: 100%;
+	width: 85%;
+}
+.search span{
+	position: absolute;
+	right: 5px;
+	top: 0px;
+	margin-top: -5px;
+	color: #888;
+}
+/*home-list.html*/
+/****************************/
+.product{
+	width: 45.5%;
+	margin-left: 3%;
+	background-color: #fff;
+	float: left;
+	margin-top: 10px;
+}
+.today .product{
+	border: 1px solid #efefef;
+}
+.product-img{
+	height: 120px;
+	overflow: hidden;
+}
+.product-img img{
+	width: 120%;
+}
+.product-other span{
+	font-size: 12px;
+	color: #888;
+	margin-right: 5px;
+}
+.product-other span.mui-icon-location{
+	margin-left: 15px;
+}
+.product-name{
+	font-size: 14px;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;	
+	font-size: 16px;
+}
+.product-other{
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;	
+}
+.chose-item{
+	width: 45.5%;
+	margin-left: 3%;
+	float: left;
+	padding: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: 700;	
+	color: #fff;
+}
+.chose-item span{
+	float: right;
+	font-size: 40px;
+	font-weight: 700;
+}
+.chose-item.city{
+	background: url(../img/gucheng.png);
+/*	background-color: #a1a1fb;*/
+}
+.chose-item.crafts{
+	background: url(../img/craft.png);
+/*	background-color: #877952;*/
+}
+.header{
+	padding-left: 3%;
+	margin-top: 10px;
+	font-size: 16px;
+	font-weight: 700;
+}
+.article{
+	margin-top: 10px;
+}
+.article-item{
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 1px;
+}
+.article-item-new{
+	background-color: #fff;
+	padding: 10px;
+	margin-bottom: 1px;	
+}
+.article-item-img{
+	width: 35%;
+	float: left;
+	height: 80px;
+	overflow: hidden;
+}
+.article-item-img img{
+	width: 100%;
+}
+.article-item-info{
+	width: 65%;
+	float: left;
+	padding-left: 10px;
+}
+.article-item-title{
+	height: 42px;
+	overflow: hidden;
+}
+.article-item-title h4{
+	font-size: 16px;
+	display: inline;
+	font-weight: 500;
+
+}
+.article-item-title span{
+	border: 1px solid #333;
+	font-size: 12px;
+	border-radius: 4px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 5px;
+}
+.article-item-intr{
+	font-size: 14px;
+	color: #888;
+	height: 40px;
+	overflow: hidden;
+}
+.near-shop .article-item-intr{
+	height: 21px;
+}
+.shop-type{
+	float: right;
+	padding-right: 10px;
+	color: #ff9800;
+}
+.shop-item{
+	width: 96%;
+	margin-left: 2%;
+	margin-top: 5px;
+	background-color: #fff;
+}
+.shop-item-img{
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+}
+.shop-item-img img{
+	width: 100%;
+}
+.shop-item-info{
+	padding: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.shop-item-info h4{
+	font-size: 16px;
+	font-weight: 500;
+}
+.shop-item-info span{
+	font-size: 14px;
+	color: #888;
+}
+.shop-item-info span.shop-type{
+	color: #ff9800;
+}
+.my{
+	background-color: #fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.my-img{
+	width: 70px;
+	height: 70px;
+	border-radius: 70px;
+	overflow: hidden;
+	margin: 0px auto;
+}
+.my-img img{
+	width: 100%;
+}
+.my-name{
+	text-align: center;
+	margin-top: 5px;
+}
+.city-item{
+	width: 30%;
+	margin-left: 2.5%;
+	text-align: center;
+	background-color: #fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	float: left;
+}
+.crafts-item{
+	width: 46%;
+	margin-left: 2.5%;
+	text-align: center;
+	background-color: #fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	float: left;	
+}
+.crafts-item img{
+	height: 80px;
+}
+.top-nav{
+	top: 0px;
+}
+.top-nav .mui-active{
+	border-bottom: 2px solid #000;
+}
+.shop-page-head{
+	background-color: #fff;
+}
+.shop-page-head p{
+	text-indent: 2em;
+}
+.shop-page-head img{
+	width: 100%;
+}
+.shop-page-detail{
+	background-color: #fff;
+	padding: 10px;
+	padding-top: 5px;
+	margin-bottom: 5px;
+}
+.shop-page-detail img{
+	max-width: 100%;
+}
+.shop-discount{
+	background-color: #fff;
+	padding: 10px;
+}
+.shop-discount span{
+	font-size: 12px;
+	color: #888;
+	margin-right: 5px;
+}
+.shop-discount-money{
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: 700;
+	color: #ff9800;
+}
+.action-button{
+	position: fixed;
+	bottom: 0;
+	background-color: #fff;
+	width: 100%;
+	
+}
+.action-button-item{
+	float: left;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+}
+.book{
+	width: 25%;
+}
+.buy{
+	width: 25%;
+	color:#ff9800 ;
+}
+.buy a{
+	color:#ff9800;
+	text-decoration: none;
+}
+.go{
+	width: 50%;
+	background-color: #9ccc65;
+	color: #fff;
+}
+.this-shop,.shop-product{
+	margin-bottom: 50px;
+}
+.product-page .mui-icon-eye{
+	margin-right: 8px;
+	margin-top: 3px;
+}
+.product-page-detail{
+	padding: 10px;
+	padding-top: 5px;
+	
+}
+.product-page-detail img{
+	max-width: 100%;
+}
+.action{
+	background-color: #333;
+	color: #fff;
+	margin-top: 30px;
+}
+.action:enabled:active{
+	background-color:#000;
+}
+.action-other{
+	background-color: #fff;
+	color: #333;
+	border: 1px solid #333;
+}
+.action-other:enabled:active{
+	background-color: #fff;
+	color: #333;
+	border: 1px solid #333;	
+}
+.footer-time{
+	padding-left: 2%;
+	color: #888;
+	font-size: 16px;
+	margin-top: 10px;
+}
+.footer-time span{
+	color: #9ccc65;
+}
+.empty{
+	font-size: 30px;
+	color: #888;
+	font-weight: 600;
+	text-align: center;
+	padding-top: 180px;
+	margin-bottom: 20px;
+}

@@ -1,0 +1,478 @@
+{
+	"home/home-list.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"img/tangren01.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"fonts/iconfont.ttf",
+			"js/all.js",
+			"img/gucheng1.jpg",
+			"img/craf.jpg",
+			"img/craft.png",
+			"img/gucheng.png"
+		],
+		"refer": [
+			"city/city-all.html",
+			"crafts/crafts-all.html",
+			"home/article.html",
+			"product/product-page.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"home/home-list.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.ttf",
+			"js/page.js",
+			"js/all.js"
+		],
+		"refer": [
+			"home/home-list.html",
+			"my.html",
+			"near-shop.html",
+			"shop.html",
+			"home/home-search-head.html"
+		]
+	},
+	"my.html": {
+		"resources": [
+			"img/1.jpg",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.ttf",
+			"img/touxiang.png"
+		],
+		"refer": [
+			"my/my-book-head.html",
+			"my/my-footer-head.html",
+			"login/login-way.html"
+		]
+	},
+	"city/city-all.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/style.css",
+			"js/page.js",
+			"js/all.js"
+		],
+		"refer": [
+			"city/city-sigle-head.html"
+		]
+	},
+	"crafts/crafts-all.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"img/chuitangren.png",
+			"js/page.js",
+			"js/all.js",
+			"img/j�.png",
+			"img/:�1.png",
+			"img/�]3.png",
+			"img/yu.png",
+			"img/caobian.png",
+			"img/jianzhi.png",
+			"img/fengz.png",
+			"img/cixiu1.png",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"crafts/crafts-sigle-head.html"
+		]
+	},
+	"home/article.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/style.css",
+			"img/tangren01.jpg",
+			"js/page.js",
+			"js/all.js",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"product/product-page.html"
+		]
+	},
+	"product/product-page.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"img/ciqi01.jpg",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/page.js",
+			"js/all.js",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"shop/buy.html"
+		]
+	},
+	"shop.html": {
+		"refer": [
+			"shop/shop-page.html",
+			"product/product-page.html"
+		],
+		"resources": [
+			"img/ciqi01.jpg",
+			"fonts/mui.ttf",
+			"fonts/iconfont.ttf",
+			"js/mui.min.js",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js"
+		]
+	},
+	"shop/shop-page.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"img/ciqi01.jpg",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"img/tangren01.jpg",
+			"js/page.js",
+			"js/all.js",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"product/product-page.html",
+			"shop/buy.html"
+		]
+	},
+	"near-shop.html": {
+		"resources": [
+			"js/mui.min.js",
+			"img/ciqi01.jpg",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.ttf",
+			"js/page.js",
+			"js/all.js",
+			"img/tangren.jpg"
+		],
+		"refer": [
+			"shop/shop-page.html"
+		]
+	},
+	"city/city-product.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"img/tangren01.jpg",
+			"css/mui.min.css",
+			"js/page.js",
+			"js/all.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/style.css",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"product/product-page.html"
+		]
+	},
+	"city/city-sigle-head.html": {
+		"resources": [
+			"city/city-sigle-tab.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/page.js",
+			"js/all.js"
+		],
+		"refer": [
+			"city/city-sigle-tab.html"
+		]
+	},
+	"city/city-sigle-tab.html": {
+		"resources": [
+			"city/city-product.html",
+			"css/mui.min.css",
+			"css/iconfont.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"city/city-product.html",
+			"city/city-shop.html"
+		]
+	},
+	"crafts/crafts-sigle-head.html": {
+		"resources": [
+			"css/iconfont.css",
+			"crafts/crafts-sigle-tab.html",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"js/all.js"
+		],
+		"refer": [
+			"crafts/crafts-sigle-tab.html"
+		]
+	},
+	"crafts/crafts-sigle-tab.html": {
+		"resources": [
+			"crafts/crafts-product.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/iconfont.css",
+			"css/style.css"
+		],
+		"refer": [
+			"crafts/crafts-shop.html",
+			"crafts/crafts-product.html"
+		]
+	},
+	"crafts/crafts-product.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"img/tangren01.jpg",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/page.js",
+			"js/all.js",
+			"css/iconfont.css",
+			"css/style.css",
+			"fonts/iconfont.ttf",
+			"fonts/mui.ttf"
+		]
+	},
+	"city/city-shop.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"css/mui.min.css",
+			"css/iconfont.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"js/all.js",
+			"fonts/iconfont.ttf"
+		]
+	},
+	"home/home-search-head.html": {
+		"resources": [
+			"home/home-search-tab.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/page.js",
+			"js/all.js",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"home/home-search-tab.html"
+		]
+	},
+	"home/home-search-product.html": {
+		"resources": [
+			"css/mui.min.css",
+			"img/tangren01.jpg",
+			"img/ciqi01.jpg",
+			"js/page.js",
+			"js/all.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/style.css"
+		]
+	},
+	"home/home-search-tab.html": {
+		"resources": [
+			"home/home-search-product.html",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"home/home-search-shop.html",
+			"home/home-search-product.html"
+		]
+	},
+	"crafts/crafts-shop.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"js/mui.min.js",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js",
+			"fonts/iconfont.ttf"
+		]
+	},
+	"my/my-book-tab.html": {
+		"resources": [
+			"my/my-book-product.html",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": [
+			"my/my-book-shop.html",
+			"my/my-book-product.html"
+		]
+	},
+	"my/my-book-head.html": {
+		"resources": [
+			"my/my-book-tab.html",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"js/all.js"
+		],
+		"refer": [
+			"my/my-book-tab.html"
+		]
+	},
+	"my/my-book-product.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"css/mui.min.css",
+			"img/tangren01.jpg",
+			"js/mui.min.js",
+			"js/page.js",
+			"js/all.js"
+		]
+	},
+	"my/my-footer-shop.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js",
+			"img/ciqishop.jpg",
+			"img/cixiushop.jpg"
+		]
+	},
+	"my/my-footer-head.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"my/my-footer-shop.html",
+			"fonts/iconfont.ttf",
+			"js/page.js",
+			"js/all.js"
+		],
+		"refer": [
+			"my/my-footer-shop.html"
+		]
+	},
+	"my/my-book-shop.html": {
+		"resources": [
+			"img/ciqi01.jpg",
+			"img/cixiushop.jpg",
+			"img/ciqishop.jpg"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"login/login-way.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"login.html"
+		]
+	},
+	"start-pic.html": {
+		"resources": [
+			"img/2.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/all.js",
+			"img/3.jpg"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"home/home-search-shop.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js",
+			"fonts/iconfont.ttf"
+		]
+	},
+	"shop/buy.html": {
+		"resources": [
+			"shop/buy-page.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js"
+		],
+		"refer": [
+			"shop/buy-page.html"
+		]
+	},
+	"shop/buy-page.html": {
+		"resources": [
+			"css/mui.min.css"
+		]
+	}
+}

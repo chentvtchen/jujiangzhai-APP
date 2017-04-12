@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>吐槽列表</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+	</head>
+
+	<body>
+		<div class="mui-content mui-scroll-wrapper all" id="pullrefresh">
+			<div class="mui-scroll">
+				<div class="special" id="send-ground">
+					说说心里事
+				</div>
+				<div class="ground" id="ground">
+					<div class="news-item">
+						<div class="news-head">
+							<span class="mui-pull-left">看不见我</span>
+							<div class="mui-clearfix"></div>
+						</div>
+						<div class="news-content">
+							<div class="news-content-info">
+								<div class="news-title">我妈看见了我手腕上的伤口，只是骂我了一顿</div>
+								<div class="news-other">
+									<span class="news-time mui-pull-left">7-20 8:40</span>
+									<span class="mui-pull-right">发送私信</span>
+									<span class="icon iconfont icon-youjian mui-pull-right"></span>
+								</div>
+							</div>
+							<div class="mui-clearfix"></div>
+						</div>
+					</div>
+					<div class="news-item">
+						<div class="news-head">
+							<span class="mui-pull-left">手册里的故事</span>
+							<div class="mui-clearfix"></div>
+						</div>
+						<div class="news-content">
+							<div class="news-content-info">
+								<div class="news-title">觉得人生陷入了一种毫无意义的循环，觉得自己没救了</div>
+								<div class="news-other">
+									<span class="news-time mui-pull-left">7-20 8:40</span>
+									<span class="mui-pull-right">发送私信</span>
+									<span class="icon iconfont icon-youjian mui-pull-right"></span>
+								</div>
+							</div>
+							<div class="mui-clearfix"></div>
+						</div>
+					</div>
+					<div class="news-item">
+						<div class="news-head">
+							<span class="mui-pull-left">某某人</span>
+							<div class="mui-clearfix"></div>
+						</div>
+						<div class="news-content">
+							<div class="news-content-info">
+								<div class="news-title">啦啦啦啦啦，好开心</div>
+								<div class="news-other">
+									<span class="news-time mui-pull-left">7-20 8:40</span>
+									<span class=" mui-pull-right del">删除树洞</span>
+									<span class="mui-icon mui-icon-trash mui-pull-right del"></span>
+								</div>
+							</div>
+							<div class="mui-clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						contentrefresh: "正在刷新...",
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			var page = 1;
+			var requestEnd = false;
+			getSquareList(page);
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var timerid = setInterval(function() {
+					if (requestEnd) {
+						clearInterval(timerid);
+						plus.nativeUI.closeWaiting();
+					}
+				}, 20);
+				//添加广场留言
+				document.getElementById('send-ground').addEventListener('tap', function() {
+					mui.openWindow({
+						url: '../publish/publish-ground.html',
+						id: 'publish-ground.html',
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+				mui('.ground').on('tap', '.reply', function() {
+					var UserId = this.id;
+					var squareid = this.parentNode.id;
+					mui.openWindow({
+						url: '../message/message-ground-mail-send.html',
+						id: 'message-ground-mail-send',
+						extras: {
+							UserId: UserId,
+							squareid: squareid
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+				//删除留言
+				mui('.ground').on('tap', '.del', function() {
+					var elem = this;
+					var li = elem.parentNode;
+					mui.confirm('确认删除该条留言？', popWinHeader, btnArray, function(e) {
+						if (e.index == 0) {
+							mui.ajax(curMainUrl, {
+								data: {
+									action: 'delSquare',
+									id: li.getAttribute('id')
+								},
+								type: 'post',
+								dataType: 'json',
+								success: function(data) {
+									isLoginFalse(data, function(data) {
+										if (data.success == 'True') {
+											plus.nativeUI.toast(data.message);
+											location.reload();
+										} else {
+											plus.nativeUI.toast(data.message);
+										}
+									});
+								},
+								error: function(xhr, type, errorThrown) {
+									plus.nativeUI.toast('删除留言失败');
+								}
+							})
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+				var btnArray = ['确认', '取消'];
+			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					page = 1;
+					mui('#pullrefresh').pullRefresh().refresh(true);
+					getSquareList('down');
+				}, 1000);
+			}
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					getSquareList('up');
+				}, 1000);
+			}
+		</script>
+	</body>
+
+</html>

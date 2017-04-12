@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>搜索-头部</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="search">
+				<input type="text" placeholder="搜索"/>
+				<span class="mui-icon mui-icon-search mui-pull-right" id="search"></span>
+			</div>
+		</header>		
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+			    subpages:[{
+			      url:'home-search-tab.html',
+			      id:'home-search-tab',
+			      styles:{
+			        top:'45px',//mui标题栏默认高度为45px；
+			        bottom:'0px'//默认为0px，可不定义；
+			      }
+			    }]
+			  });
+		</script>
+	</body>
+
+</html>
