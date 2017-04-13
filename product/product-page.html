@@ -27,7 +27,7 @@
 			<div class="this-shop" id="this-shop">
 			</div>
 			<div class="action-button">
-				<div class="action-button-item book">
+				<div class="action-button-item book" id="book">
 					收藏
 				</div>
 				<div class="action-button-item buy" id="buy">
@@ -52,7 +52,21 @@
 				productDetail(id);
 				//点开店铺页面
 				mui('.this-shop').on('tap', '.shop-item', function(e) {
-				});			
+					var id = this.id;
+					openShopDetail(id);
+				});		
+				//点击收藏
+				document.getElementById('book').addEventListener('tap',function(){
+					console.log(isLogin());
+					if(isLogin()){
+						collect('handicraft',id);
+					}else{
+						plus.nativeUI.toast('请登录');
+						backLogin();						
+						
+					}
+					
+				})					
 				//点开购买页面
 				document.getElementById('buy').addEventListener('tap',function(){
 					var buyLink = this.getElementsByTagName('a')[0].attributes["data-href"].value;
@@ -60,6 +74,9 @@
 				})				
 				//点开导航页面
 				document.getElementById('go').addEventListener('tap',function(){
+					var placeDetail = this.getElementsByTagName('span')[0].innerText;
+					var city = document.getElementsByClassName('city')[0].innerText;
+					openGoI(placeDetail,city);					
 				})				
 				
 			});

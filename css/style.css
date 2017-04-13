@@ -13,6 +13,16 @@ input[type=text]{
 	padding-left: 10px;
 	margin-bottom: 1px;	
 }
+
+p.info{
+	width: 90%;
+	text-align: center;
+	margin-left: 5%;
+	margin-top: 20px;
+}
+.logout{
+	display: none;
+}
 .login-box h3{
 	text-align: center;
 	font-size: 16px;
@@ -628,4 +638,7 @@ nav.mui-bar{
 	text-align: center;
 	padding-top: 180px;
 	margin-bottom: 20px;
+}
+.go span{
+	display: none;
 }

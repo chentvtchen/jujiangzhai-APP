@@ -47,32 +47,11 @@
 		<script type="text/javascript" src="../js/app.js"></script>
 		<script src="../js/page.js"></script>
 		<script>
-			mui.init({
-				swipeBack: false,
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						contentrefresh: "正在刷新...",
-						callback: pulldownRefresh
-					},
-					up: {
-						contentrefresh: '正在加载...',
-						callback: pullupRefresh
-					}
-				}
-			});
-			var page = 1;
-			var requestEnd = false;
+			mui.init({});
 
 			mui.plusReady(function() {
 				getTodayList();
 				getArticle();				
-				var timerid = setInterval(function() {
-					if (requestEnd) {
-						clearInterval(timerid);
-						plus.nativeUI.closeWaiting();
-					}
-				}, 20);
 				
 				//点开产品页面
 				mui('.today').on('tap', '.product', function(e) {
@@ -97,24 +76,6 @@
 					})
 				})				
 			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-//					page = 1;
-//					mui('#pullrefresh').pullRefresh().refresh(true);
-//					getArticleList('down');
-				}, 1000);
-			}
-			/**
-			 * 上拉加载具体业务实现
-			 */
-			function pullupRefresh() {
-				setTimeout(function() {
-//					getArticleList('up');
-				}, 1000);
-			}
 		</script>
 	</body>
 

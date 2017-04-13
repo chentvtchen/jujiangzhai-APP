@@ -12,16 +12,16 @@
 
 	<body>
 		<div class="mui-content">
-			<div class="my">
+			<div class="my" id="my">
 				<div class="my-img">
 					<img src="img/touxiang.png" />
 				</div>
-				<div class="my-name">
-					未登录
+				<div class="my-name" id="my-name">
+					点击登录
 				</div>
 			</div>
 			<ul class="mui-table-view mui-table-view-chevron service">
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell" id="information">
 					<a class="mui-navigate-right">
 						<span class="icon iconfont icon-dingyue"></span>个人资料
 					</a>
@@ -38,28 +38,104 @@
 				</li>
 			</ul>
 			<ul class="mui-table-view mui-table-view-chevron service">
-				<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell" id="changePassword">
 					<a class="mui-navigate-right">
 						<span class="icon iconfont icon-wrench"></span>密码修改
 					</a>
-				</li>				
+				</li>
 				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
+					<a class="mui-navigate-right" id="feedback">
 						<span class="icon iconfont icon-liebiao-copy"></span>问题反馈
 					</a>
 				</li>
 			</ul>
-			<button id="logout" class="mui-btn-block mui-btn mui-btn-red">退出登录</button>
+			<button id="logout" class="mui-btn-block mui-btn mui-btn-red logout">退出登录</button>
 		</div>
 		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/all.js"></script>
+		<script type="text/javascript" src="js/page.js"></script>
 		<script>
 			mui.init();
 			mui.plusReady(function() {
-				document.getElementById('logout').addEventListener('tap', function() {
-					plus.nativeUI.toast('注销成功');
+				var self = plus.webview.currentWebview();
+					var nameDiv = document.getElementById('my-name');
+				//如果用户已经登录
+				if (isLogin()) {
+					nameDiv.innerText = plus.storage.getItem("userName");
+					document.getElementById('logout').style.display = 'block';
+					document.getElementById('logout').addEventListener('tap', function() {
+							logOut();
+						})
+						//打开个人资料页面
+					document.getElementById('information').addEventListener('tap', function() {
+							mui.openWindow({
+								url: 'my/my-infomation.html',
+								id: 'my-infomation.html',
+								show: {
+									aniShow: 'pop-in'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						})
+						//打开收藏页面
+					document.getElementById('book').addEventListener('tap', function() {
+							mui.openWindow({
+								url: 'my/my-book-head.html',
+								id: 'my-book-head',
+								show: {
+									aniShow: 'pop-in'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						})
+						//打开我的足记页面
+					document.getElementById('footer').addEventListener('tap', function() {
+							mui.openWindow({
+								url: 'my/my-footer-head.html',
+								id: 'my-footer-head',
+								show: {
+									aniShow: 'pop-in'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						})
+						//打开密码修改页面
+					document.getElementById('changePassword').addEventListener('tap', function() {
+						mui.openWindow({
+							url: 'my/my-change-password.html',
+							id: 'my-change-password.html',
+							show: {
+								aniShow: 'pop-in'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					})
+				} else { //未登录
+					nameDiv.innerText = '点击登录';
+					document.getElementById('logout').style.display = 'none';
+					document.getElementById('my').addEventListener('tap', function(e) {
+						backLoginI();
+					});					
+					mui('.mui-table-view').on('tap', 'li', function(e) {
+						backLoginI();
+					});
+					document.getElementById('feedback').addEventListener('tap', function(e) {
+						e.stopPropagation();
+					});
+				}
+				//打开问题反馈页面
+				document.getElementById('feedback').addEventListener('tap', function() {
 					mui.openWindow({
-						url: 'login/login-way.html',
-						id: 'login-way',
+						url: 'my/my-feedback.html',
+						id: 'my-feedback.html',
 						show: {
 							aniShow: 'pop-in'
 						},
@@ -68,30 +144,6 @@
 						}
 					});
 				})
-				document.getElementById('book').addEventListener('tap',function(){
-					mui.openWindow({
-						url: 'my/my-book-head.html',
-						id: 'my-book-head',
-						show: {
-							aniShow: 'pop-in'
-						},
-						waiting: {
-							autoShow: false
-						}
-					});					
-				})
-				document.getElementById('footer').addEventListener('tap',function(){
-					mui.openWindow({
-						url: 'my/my-footer-head.html',
-						id: 'my-footer-head',
-						show: {
-							aniShow: 'pop-in'
-						},
-						waiting: {
-							autoShow: false
-						}
-					});					
-				})				
 			});
 		</script>
 	</body>

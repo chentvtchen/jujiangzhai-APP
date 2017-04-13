@@ -25,6 +25,13 @@
 				swipeBack: false
 			});
 			mui.plusReady(function() {
+				var last = plus.webview.getWebviewById('crafts-sigle-head');
+				var craft = last.title;	
+				getShopByType(craft);
+				mui('.mui-content').on('tap', '.shop-item', function(e) {
+					var id = this.id;
+					openShopDetail(id);
+				});						
 			});
 		</script>
 	</body>

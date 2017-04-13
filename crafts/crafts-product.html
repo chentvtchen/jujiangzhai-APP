@@ -26,7 +26,7 @@
 			});
 			mui.plusReady(function() {
 				var last = plus.webview.getWebviewById('crafts-sigle-head');
-				var craft = last.title;			
+				var craft = last.title;	
 				getCraftsByType(craft);
 				mui('.mui-content').on('tap', '.product', function(e) {
 					var id = this.id;

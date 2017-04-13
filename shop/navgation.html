@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>导航页面说明</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
 	</head>
+
 	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">导航</h1>
+		</header>
+		<div class="mui-content">
+			<button class="mui-btn mui-btn-block action" id="go">调用第三方地图导航</button>
+			<p class="info">请注意，调用第三方导航时请确保手机中至少拥有一个导航APP，比如高德地图，百度地图</p>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script type="text/javascript" src="../js/gps.js" ></script>
+		<script>
+			mui.init({});
+			function navigateWithMap(lo,la,name) {
+				// 设置目标位置坐标点和其实位置坐标点
+				var dst = new plus.maps.Point(lo, la); 
+				var src = new plus.maps.Point(116.335, 39.966); // 大钟寺
+				// 调用系统地图显示 .
+				plus.maps.openSysMap(dst, name, src);
+			}
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var goPlace = self.goPlace.split(',');
+				var goPlaceName = self.goPlaceName;
+				goPlace[0] = parseFloat(goPlace[0]);
+				goPlace[1] = parseFloat(goPlace[1]);
+				document.getElementById('go').addEventListener('tap',function(){
+					navigateWithMap(goPlace[0],goPlace[1],goPlaceName);
+				})
+
+			});
+		</script>
 	</body>
+
 </html>

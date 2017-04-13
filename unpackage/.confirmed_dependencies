@@ -52,12 +52,18 @@
 			"css/mui.min.css",
 			"css/style.css",
 			"fonts/iconfont.ttf",
-			"img/touxiang.png"
+			"img/touxiang.png",
+			"js/page.js",
+			"js/all.js"
 		],
 		"refer": [
 			"my/my-book-head.html",
 			"my/my-footer-head.html",
-			"login/login-way.html"
+			"login/login-way.html",
+			"login.html",
+			"my/my-feedback.html",
+			"my/my-change-password.html",
+			"my/my-infomation.html"
 		]
 	},
 	"city/city-all.html": {
@@ -127,7 +133,9 @@
 			"fonts/iconfont.ttf"
 		],
 		"refer": [
-			"shop/buy.html"
+			"shop/buy.html",
+			"shop/shop-page.html",
+			"shop/navgation.html"
 		]
 	},
 	"shop.html": {
@@ -162,7 +170,9 @@
 		],
 		"refer": [
 			"product/product-page.html",
-			"shop/buy.html"
+			"shop/buy.html",
+			"shop/navgation.html",
+			"login.html"
 		]
 	},
 	"near-shop.html": {
@@ -267,6 +277,9 @@
 			"css/style.css",
 			"fonts/iconfont.ttf",
 			"fonts/mui.ttf"
+		],
+		"refer": [
+			"product/product-page.html"
 		]
 	},
 	"city/city-shop.html": {
@@ -331,6 +344,9 @@
 			"css/style.css",
 			"js/all.js",
 			"fonts/iconfont.ttf"
+		],
+		"refer": [
+			"shop/shop-page.html"
 		]
 	},
 	"my/my-book-tab.html": {
@@ -338,7 +354,8 @@
 			"my/my-book-product.html",
 			"css/iconfont.css",
 			"css/mui.min.css",
-			"css/style.css"
+			"css/style.css",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"my/my-book-shop.html",
@@ -367,7 +384,11 @@
 			"img/tangren01.jpg",
 			"js/mui.min.js",
 			"js/page.js",
-			"js/all.js"
+			"js/all.js",
+			"css/iconfont.css",
+			"css/style.css",
+			"fonts/iconfont.ttf",
+			"fonts/mui.ttf"
 		]
 	},
 	"my/my-footer-shop.html": {
@@ -404,7 +425,15 @@
 		"resources": [
 			"img/ciqi01.jpg",
 			"img/cixiushop.jpg",
-			"img/ciqishop.jpg"
+			"img/ciqishop.jpg",
+			"js/mui.min.js",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js",
+			"fonts/iconfont.ttf",
+			"fonts/mui.ttf"
 		]
 	},
 	"login.html": {
@@ -414,10 +443,13 @@
 			"css/mui.min.css",
 			"css/style.css",
 			"js/mui.min.js",
-			"fonts/iconfont.ttf"
+			"fonts/iconfont.ttf",
+			"js/page.js",
+			"js/all.js"
 		],
 		"refer": [
-			"index.html"
+			"index.html",
+			"login/register.html"
 		]
 	},
 	"login/login-way.html": {
@@ -473,6 +505,65 @@
 	"shop/buy-page.html": {
 		"resources": [
 			"css/mui.min.css"
+		]
+	},
+	"shop/navgation.html": {
+		"resources": [
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"js/all.js",
+			"js/gps.js"
+		]
+	},
+	"login/register.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/page.js",
+			"js/all.js"
+		],
+		"refer": [
+			"login.html"
+		]
+	},
+	"my/my-feedback.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js"
+		]
+	},
+	"my/my-change-password.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js"
+		]
+	},
+	"my/my-infomation.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js"
 		]
 	}
 }

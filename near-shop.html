@@ -16,28 +16,6 @@
 			<div class="mui-scroll near-shop" id="near-shop">
 				<div class="article-item">
 					<div class="article-item-img">
-						<img src="img/tangren.jpg" />
-					</div>
-					<div class="article-item-info">
-						<div class="article-item-title">
-							<h4>吹糖人小铺 </h4>
-						</div>
-						<div class="article-item-intr">
-							吹糖人是旧时北京的一个行业，北京话为“吹糖人儿”，中国民间手工艺品之一。
-						</div>
-						<div class="article-item-intr">
-							<span class="shop-distance">
-									1.5km
-								</span>
-							<span class="shop-type">
-									吹糖人
-								</span>
-						</div>
-					</div>
-					<div class="mui-clearfix"></div>
-				</div>
-				<div class="article-item">
-					<div class="article-item-img">
 						<img src="http://www.waleslee.cn/img/handicrafts/9f4911.jpg" />
 					</div>
 					<div class="article-item-info">
@@ -68,22 +46,7 @@
 			mui.init({
 				swipeBack: false
 			});
-			var page = 1;
-			var requestEnd = false;
-//			getNearShopList();
 			mui.plusReady(function() {
-				var timerid = setInterval(function() {
-					if (requestEnd) {
-						clearInterval(timerid);
-						plus.nativeUI.closeWaiting();
-					}
-				}, 20);
-				//点开店铺页面
-				mui('.near-shop').on('tap', '.article-item', function(e) {
-					var id = this.id;
-					openProductDetailIndex(id);
-				});					
-				
 			});
 		</script>
 	</body>
