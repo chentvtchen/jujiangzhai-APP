@@ -8,6 +8,7 @@
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../css/new.css"/>
 		<style>
 			.mui-content{
 				background-color: #fff;
@@ -20,6 +21,9 @@
 			<div class="mui-scroll">
 				<div class="header">
 					今日推荐
+					<span class="mui-pull-right" id="other">
+						随便看看
+					</span>
 				</div>
 				<div class="today" id="today">
 				</div>
@@ -27,11 +31,43 @@
 					分类查看
 				</div>				
 				<div class="chose">
-					<div class="chose-item city" id="city">
+					<!--<div class="chose-item city" id="city">
 						城市<span class="mui-icon mui-icon-home"></span>
-					</div>
-					<div class="chose-item crafts" id="crafts">
+					</div>-->
+					<!--<div class="chose-item crafts" id="crafts">
 						工艺品<span class="mui-icon mui-icon-star"></span>
+					</div>-->
+					<div class="new-chose-item">
+						<i class="iconfont icon-z-clothes"></i>
+						服饰
+					</div>
+					<div class="new-chose-item">
+						<i class="iconfont icon-jiaju"></i>
+						家具
+					</div>
+					<div class="new-chose-item">
+						<i class="iconfont icon-chahu"></i>
+						茶具
+					</div>
+					<div class="new-chose-item">
+						<i class="iconfont icon-tongban"></i>
+						铜艺
+					</div>
+					<div class="new-chose-item">
+						<i class="iconfont icon-zhongguojie"></i>
+						饰品
+					</div>
+					<div class="new-chose-item">
+						<i class="iconfont icon-shiwu"></i>
+						小食
+					</div>
+					<div class="new-chose-item">
+						<i class="iconfont icon-xijuzuopin"></i>
+						戏剧
+					</div>
+					<div class="new-chose-item" id="more">
+						<i class="iconfont icon-gengduo"></i>
+						更多
 					</div>
 					<div class="mui-clearfix"></div>
 				</div>
@@ -47,35 +83,98 @@
 		<script type="text/javascript" src="../js/app.js"></script>
 		<script src="../js/page.js"></script>
 		<script>
-			mui.init({});
-
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						contentrefresh: "正在刷新...",
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}				
+			});
+			var page = 1;
+			var requestEnd = false;
 			mui.plusReady(function() {
+				var timerid = setInterval(function() {
+					if(requestEnd) {
+						clearInterval(timerid);
+						plus.nativeUI.closeWaiting();
+					}
+				}, 20);						
 				getTodayList();
-				getArticle();				
-				
+				getArticle(page);				
 				//点开产品页面
 				mui('.today').on('tap', '.product', function(e) {
 					var id = this.id;
+					addView(id);
 					openProductDetail(id);
 				});
+				//点开分类页面
+				mui('.chose').on('tap', '.new-chose-item', function(e) {
+					var title = this.innerText;
+					    title = title[1]+title[2];
+					mui.openWindow({
+						id: 'crafts-sigle-head',
+						url: '../crafts/crafts-sigle-head.html',
+						extras: {
+							title: title
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});				
 				//点开科普页面
-				mui('.article').on('tap', '.article-item', function(e) {
+				mui('.article').on('tap', '.word-item', function(e) {
 					var artid = this.id;
 					openArticleDetail(artid);
 				});			
-				document.getElementById('city').addEventListener('tap',function(){
-					mui.openWindow({
-						id: 'city',
-						url: '../city/city-all.html',
-					})
-				})
-				document.getElementById('crafts').addEventListener('tap',function(){
+//				document.getElementById('city').addEventListener('tap',function(){
+//					mui.openWindow({
+//						id: 'city',
+//						url: '../city/city-all.html',
+//					})
+//				})
+				document.getElementById('more').addEventListener('tap',function(even){
+					even.stopPropagation();
 					mui.openWindow({
 						id: 'crafts',
 						url: '../crafts/crafts-all.html',
 					})
-				})				
+				})	
+				document.getElementById('other').addEventListener('tap',function(){
+					mui.openWindow({
+						id: 'product-head',
+						url: 'product-head.html',
+					})
+				})	
 			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					page = 1;
+					mui('#pullrefresh').pullRefresh().refresh(true);
+					getArticle('down');
+				}, 1000);
+			}
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					getArticle('up');
+				}, 1000);
+			};			
 		</script>
 	</body>
 

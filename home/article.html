@@ -41,6 +41,7 @@
 				//点开产品页面
 				mui('.shop-product').on('tap', '.product', function(e) {
 					var proid = this.id;
+					addView(proid);
 					openProductDetail(proid);
 				});				
 				

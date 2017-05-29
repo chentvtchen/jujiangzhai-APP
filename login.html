@@ -40,18 +40,19 @@
 		<script>
 			mui.init();
 			mui.plusReady(function() {
+				var reg = /^[a-zA-Z\d]+$/;
 				var self = plus.webview.currentWebview();
 				// close splash
-//				setTimeout(function() {
-//					//关闭 splash
-//					plus.navigator.closeSplashscreen();
-//					var views = plus.webview.all();
-//					for (var i = 0; i < views.length; i++) {
-//						if (views[i].id != 'login.html') {
-//							plus.webview.close(views[i]);
-//						}
-//					}
-//				}, 600);
+				setTimeout(function() {
+					//关闭 splash
+					plus.navigator.closeSplashscreen();
+					var views = plus.webview.all();
+					for (var i = 0; i < views.length; i++) {
+						if (views[i].id != 'login.html') {
+							plus.webview.close(views[i]);
+						}
+					}
+				}, 600);
 				document.getElementById('reg').addEventListener('tap', function() {
 					mui.openWindow({
 						url: 'login/register.html',
@@ -74,21 +75,29 @@
 					}else if(!passwordText){
 						plus.nativeUI.toast('请输入登录密码');
 					}else{
-						 var wobj = plus.webview.getWebviewById("my.html");
-						 
-						 wobj.reload(true);  
-						login(userName,passwordText);
-							mui.openWindow({
-								url: 'index.html',
-								id: 'index',
-								preload: 'ture',
-								show: {
-									aniShow: 'pop-in'
-								},
-								waiting: {
-									autoShow: false
-								}
-							});						
+						if(userName.length<6){
+							plus.nativeUI.toast('账号由至少6位的数字和英文字母组成！');
+						}else{
+							if(reg.test(userName)){
+//								 var wobj = plus.webview.getWebviewById("my.html");
+//								 wobj.reload(true);  
+								login(userName,passwordText);
+									mui.openWindow({
+										url: 'index.html',
+										id: 'index',
+										preload: 'ture',
+										show: {
+											aniShow: 'pop-in'
+										},
+										waiting: {
+											autoShow: false
+										}
+									});	
+							}else{
+								plus.nativeUI.toast('账号由数字和英文字母组成！');
+							}
+						}
+					
 					}
 				});
 			});

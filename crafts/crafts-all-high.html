@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>工艺品列表</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/chaju.png" />
+				</div>
+				茶具
+			</div>	
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/layi.png" />
+				</div>
+				蜡艺
+			</div>	
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/yushi.png" />
+				</div>
+				玉石
+			</div>	
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/taoci.png" />
+				</div>
+				陶瓷
+			</div>		
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/tongqi.png" />
+				</div>
+				铜艺
+			</div>	
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/hanfu.png" />
+				</div>
+				服饰
+			</div>			
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/wenwan.png" />
+				</div>
+				文玩
+			</div>	
+			<div class="crafts-item">
+				<div class="crafts-item-img">
+					<img src="../img/jiaju.png" />
+				</div>
+				家具
+			</div>	
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false
+			});
+			mui.plusReady(function() {
+				//点开分类页面
+				mui('.mui-content').on('tap', '.crafts-item', function(e) {
+					var title = this.innerText;
+					mui.openWindow({
+						id: 'crafts-sigle-head',
+						url: 'crafts-sigle-head.html',
+						extras: {
+							title: title
+						},
+						show: {
+							aniShow: 'pop-in'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});					
+				
+			});
+		</script>
+	</body>
+
+</html>

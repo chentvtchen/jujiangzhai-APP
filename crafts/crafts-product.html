@@ -29,7 +29,7 @@
 				var craft = last.title;	
 				getCraftsByType(craft);
 				mui('.mui-content').on('tap', '.product', function(e) {
-					var id = this.id;
+					addView(id);
 					openProductDetail(id);
 				});				
 			});

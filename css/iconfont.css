@@ -1,4 +1,9 @@
-
+@font-face {
+	font-family: "simfang";
+  src:url('../fonts/simfang.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+   font-weight: normal;
+    font-style: normal;
+}
 @font-face {font-family: "iconfont";
   src:url('../fonts/iconfont.ttf?t=1486377994917') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
 }

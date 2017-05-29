@@ -40,7 +40,7 @@
 		<script>
 			mui.init();
 			mui.plusReady(function() {
-				var reg = '\[a-zA-Z0-9]\g';
+				var reg = /^[a-zA-Z\d]+$/;
 				var self = plus.webview.currentWebview();
 				document.getElementById('reg').addEventListener('tap', function() {
 					var userName = document.getElementById('userName').value;
@@ -50,9 +50,18 @@
 					}else if(!passwordText){
 						plus.nativeUI.toast('请输入注册登录密码');
 					}else{
-						plus.webview.close(self.id);
-						register(userName, passwordText);
-						backLogin();
+						if(userName.length<6){
+							plus.nativeUI.toast('账号由至少6位的数字和英文字母组成！');
+						}else{
+							if(reg.test(userName)){
+								plus.webview.close(self.id);
+								register(userName, passwordText);
+								backLogin();
+							}else{
+								plus.nativeUI.toast('账号由数字和英文字母组成！');
+							}
+						}
+	
 					}
 				});
 				document.getElementById('login').addEventListener('tap', function() {

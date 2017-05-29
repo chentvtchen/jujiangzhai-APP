@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>随便看看产品列表</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
+	</head>
+
+	<body>
+		<div class="mui-content all mui-scroll-wrapper " id="pullrefresh">
+			<div class="mui-scroll product-all" id="product">
+							
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						contentrefresh: "正在刷新...",
+						callback: pulldownRefresh
+					}
+				}				
+			});
+			var requestEnd = false;
+			mui.plusReady(function() {
+				var timerid = setInterval(function() {
+					if(requestEnd) {
+						clearInterval(timerid);
+						plus.nativeUI.closeWaiting();
+					}
+				}, 20);					
+				getProductList(1);
+				//点开产品页面
+				mui('.mui-content').on('tap', '.product', function(e) {
+					var id = this.id;
+					openProductDetail(id);
+				});					
+			});
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().refresh(true);
+					getProductList('down');
+				}, 1000);
+			}			
+		</script>
+	</body>
+
+</html>

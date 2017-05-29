@@ -16,52 +16,7 @@
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">城市</h1>
 		</header>		
-		<div class="mui-content">
-			<div class="city-item">
-				南京
-			</div>
-			<div class="city-item">
-				镇江
-			</div>
-			<div class="city-item">
-				苏州
-			</div>	
-			<div class="city-item">
-				扬州
-			</div>		
-			<div class="city-item">
-				杭州
-			</div>	
-			<div class="city-item">
-				乌镇
-			</div>
-			<div class="city-item">
-				丽江
-			</div>
-			<div class="city-item">
-				上海
-			</div>	
-			<div class="city-item">
-				北京
-			</div>	
-			<div class="city-item">
-				成都
-			</div>	
-			<div class="city-item">
-				广州
-			</div>	
-			<div class="city-item">
-				武汉
-			</div>	
-			<div class="city-item">
-				西安
-			</div>	
-			<div class="city-item">
-				深圳
-			</div>	
-			<div class="city-item">
-				青岛
-			</div>	
+		<div class="mui-content" id="city">
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript" src="../js/all.js"></script>
@@ -73,7 +28,7 @@
 			});
 			var page = 1;
 			var requestEnd = false;
-//			getArticleList(page);
+			getCityList();
 			mui.plusReady(function() {
 				mui('.mui-content').on('tap', '.city-item', function(e) {
 					var title = this.innerText;

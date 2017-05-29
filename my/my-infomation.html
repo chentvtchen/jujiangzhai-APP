@@ -17,7 +17,43 @@
 		    <h1 class="mui-title">个人资料</h1>
 		</header>				
 		<div class="mui-content">
-			<p>个人资料</p>
+			<div class="info-item">
+				<div class="info-item-name info-item-name-img" id="picDiv">
+					头像
+				</div>
+				<div class="info-item-img" id="pic">
+					<img src="../img/touxiang.png"/>
+				</div>
+				<div class="mui-clearfix"></div>
+			</div>
+			<div class="info-item">
+				<div class="info-item-name">
+					账号
+				</div>
+				<div class="info-item-content" id="id">
+				</div>
+			</div>
+			<div class="info-item" id="nameDiv">
+				<div class="info-item-name" id="nameDiv">
+					昵称
+				</div>
+				<div class="info-item-content" id="name">
+				</div>
+			</div>
+			<div class="info-item" id="cityDiv" >
+				<div class="info-item-name">
+					城市
+				</div>
+				<div class="info-item-content" id="city">
+				</div>
+			</div>
+			<div class="info-item"  id="phoneDiv">
+				<div class="info-item-name">
+					手机
+				</div>
+				<div class="info-item-content" id="phone">
+				</div>
+			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript" src="../js/all.js"></script>
@@ -26,6 +62,37 @@
 		<script>
 			mui.init({});
 			mui.plusReady(function() {
+				getUserInfo();
+				document.getElementById('picDiv').addEventListener('tap',function(){
+					plus.nativeUI.toast('修改头像功能很快推出~')
+				})
+				document.getElementById('phoneDiv').addEventListener('tap',function(){
+					plus.nativeUI.toast('手机号还不能修改哦~')
+				})
+				document.getElementById('cityDiv').addEventListener('tap',function(){
+						mui.openWindow({
+							url: '../change/change-city.html',
+							id: 'change-city.html',
+							show: {
+								aniShow: 'pop-in'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+				})
+				document.getElementById('nameDiv').addEventListener('tap',function(){
+						mui.openWindow({
+							url: '../change/change-name.html',
+							id: 'change-name.html',
+							show: {
+								aniShow: 'pop-in'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+				})
 			});
 		</script>
 	</body>

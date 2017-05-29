@@ -49,17 +49,26 @@
 			mui.plusReady(function() {
 				var self = plus.webview.currentWebview();
 				var id = self.proid;
+				
+
 				productDetail(id);
+				
 				//点开店铺页面
 				mui('.this-shop').on('tap', '.shop-item', function(e) {
 					var id = this.id;
 					openShopDetail(id);
 				});		
+				
 				//点击收藏
 				document.getElementById('book').addEventListener('tap',function(){
-					console.log(isLogin());
+					var isCollected = document.getElementsByClassName('is-collect')[0].innerText;
 					if(isLogin()){
-						collect('handicraft',id);
+						//如果没有收藏，就进行收藏
+						if(isCollected == 'false'){
+							collect('handicraft',id);
+						}else{
+							cancelCollect('handicraft',id);
+						}
 					}else{
 						plus.nativeUI.toast('请登录');
 						backLogin();						

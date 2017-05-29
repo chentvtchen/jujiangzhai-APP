@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>附近店铺列表</title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+
+	</head>
+
+	<body>
+		<div class="mui-content mui-scroll-wrapper " id="pullrefresh">
+			<div class="mui-scroll near-shop" id="near-shop">
+				<p>你当前所在城市为：<span id="city"></span></p>
+				<div id="place">
+					
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/all.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script src="../js/page.js"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=4682b9f4708f294a4f76f4771acb87c1"></script> 		
+		<script> 
+			mui.init({
+			});
+			mui.plusReady(function() {
+				plus.geolocation.getCurrentPosition( function ( p ) { 
+					if(p.address.city){
+						var city = p.address.city;
+						 document.getElementById('city').innerText = city;
+						 getNearProductList(city);
+					}else{
+						plus.nativeUI.toast('定位不成功！');
+					}
+				 	 
+				 
+			}, function ( e ) {} );
+				mui('.mui-content').on('tap', '.article-item', function(e) {
+					var id = this.id;
+					openProductDetail(id);
+				});	
+			});
+		</script>
+	</body>
+
+</html>

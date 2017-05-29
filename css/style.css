@@ -1,5 +1,7 @@
+
 html,body {
 	background-color: #ededed;
+	font-family: "simfang" !important;
 }
 textarea{
 	border-radius: 0px;
@@ -13,7 +15,6 @@ input[type=text]{
 	padding-left: 10px;
 	margin-bottom: 1px;	
 }
-
 p.info{
 	width: 90%;
 	text-align: center;
@@ -22,6 +23,7 @@ p.info{
 }
 .logout{
 	display: none;
+	margin-top: 50px;
 }
 .login-box h3{
 	text-align: center;
@@ -249,8 +251,8 @@ nav.mui-bar{
 	font-size: 14px;
 }
 .service{
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	font-size: 16px;
 }
 .message{
@@ -294,6 +296,10 @@ nav.mui-bar{
 .home{
 	color: #fff;
 }
+.home img{
+	width: 100px;
+	margin-top: 10px;
+}
 .home .name{
 	display: inline;
 	font-size: 20px;
@@ -328,8 +334,12 @@ nav.mui-bar{
 	float: left;
 	margin-top: 10px;
 }
+.product-all .product:last-child{
+	margin-bottom: 10px;
+}
 .today .product{
 	border: 1px solid #efefef;
+	margin-top: 0px;
 }
 .product-img{
 	height: 120px;
@@ -358,8 +368,25 @@ nav.mui-bar{
 	padding-left: 10px;
 	padding-right: 10px;	
 }
+.chose{
+	width: 94%;
+	margin-left: 3%;
+}
+.new-chose-item{
+	width: 25%;
+	text-align: center;
+	float: left;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-size: 12px;
+	height: 24px;
+	line-height: 24px;
+}
+.new-chose-item i{
+	font-size: 24px;
+}
 .chose-item{
-	width: 45.5%;
+	width: 94%;
 	margin-left: 3%;
 	float: left;
 	padding: 10px;
@@ -381,13 +408,23 @@ nav.mui-bar{
 }
 .chose-item.crafts{
 	background: url(../img/craft.png);
+	background-size: 100% auto;
 /*	background-color: #877952;*/
 }
 .header{
 	padding-left: 3%;
-	margin-top: 10px;
+	margin-top: 15px;
+	margin-bottom: 5px;
 	font-size: 16px;
 	font-weight: 700;
+}
+.header span{
+	font-size: 10px;
+	color: #888;
+	font-weight: 500;
+	margin-right: 3%;
+	height: 21px;
+	line-height: 21px;
 }
 .article{
 	margin-top: 10px;
@@ -405,7 +442,7 @@ nav.mui-bar{
 .article-item-img{
 	width: 35%;
 	float: left;
-	height: 80px;
+	height: 60px;
 	overflow: hidden;
 }
 .article-item-img img{
@@ -417,7 +454,7 @@ nav.mui-bar{
 	padding-left: 10px;
 }
 .article-item-title{
-	height: 42px;
+	height: 21px;
 	overflow: hidden;
 }
 .article-item-title h4{
@@ -442,6 +479,10 @@ nav.mui-bar{
 }
 .near-shop .article-item-intr{
 	height: 21px;
+}
+.near-shop>p{
+	margin-bottom: 5px;
+	margin-top: 10px;
 }
 .shop-type{
 	float: right;
@@ -480,8 +521,11 @@ nav.mui-bar{
 }
 .my{
 	background-color: #fff;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #333;
+	font-size: 16px;
+	border-bottom: 1px solid #ccc;
 }
 .my-img{
 	width: 70px;
@@ -517,6 +561,9 @@ nav.mui-bar{
 	margin-top: 10px;
 	float: left;	
 }
+.crafts-item:last-child{
+	margin-bottom: 10px;
+}
 .crafts-item img{
 	height: 80px;
 }
@@ -533,7 +580,7 @@ nav.mui-bar{
 	text-indent: 2em;
 }
 .shop-page-head img{
-	width: 100%;
+	max-width: 100%;
 }
 .shop-page-detail{
 	background-color: #fff;
@@ -575,6 +622,9 @@ nav.mui-bar{
 }
 .book{
 	width: 25%;
+}
+.book span{
+	display: none;
 }
 .buy{
 	width: 25%;
@@ -634,11 +684,74 @@ nav.mui-bar{
 .empty{
 	font-size: 30px;
 	color: #888;
-	font-weight: 600;
+	font-weight: 500;
 	text-align: center;
 	padding-top: 180px;
 	margin-bottom: 20px;
 }
 .go span{
 	display: none;
+}
+.feedback{
+	width: 90%;
+	margin-left: 5%;
+}
+.feedback .dev-name{
+	margin-top: 20px;
+}
+/***************************************************************/
+/*my-information.html*/
+.info-item{
+	padding: 20px;
+	background-color: #fff;
+	margin-bottom: 1px;
+	font-size: 16px;
+}
+.info-item-name{
+	display: inline-block;
+}
+.info-item-name-img{
+	height: 50px;
+	line-height: 50px;
+}
+.info-item-img{
+	text-align: right;
+	float: right;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.info-item-img img{
+	width: 100%;
+}
+.info-item-content{
+	color: #989898;
+	float: right;
+	text-align: right;
+	display: inline-block;
+}
+.change{
+	margin-top: 15px;
+}
+.other-city{
+	font-size: 12px;
+	color: #fff;
+	margin-top: 10px;
+}
+.word-item{
+	background-size:  100%  auto;
+	background: url(../img/craft.png);
+	color: #fff;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.word-item h2{
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.6);
+	font-weight: 500;
+	font-size: 18px;
+	padding: 50px;
 }

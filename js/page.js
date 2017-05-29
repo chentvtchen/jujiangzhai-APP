@@ -2,6 +2,16 @@
 function backLogin(){
 	if (location.href == 'login.html')
 		return;
+	setTimeout(function() {
+			//关闭 splash
+			plus.navigator.closeSplashscreen();
+			var views = plus.webview.all();
+			for (var i = 0; i < views.length; i++) {
+					if (views[i].id != 'login.html') {
+				plus.webview.close(views[i]);
+			}
+		}
+	}, 600);
 	mui.openWindow({
 		url: '../login.html',
 		preload: true,
@@ -19,6 +29,16 @@ function backLogin(){
 function backLoginI(){
 	if (location.href == 'login.html')
 		return;
+	setTimeout(function() {
+			//关闭 splash
+			plus.navigator.closeSplashscreen();
+			var views = plus.webview.all();
+			for (var i = 0; i < views.length; i++) {
+					if (views[i].id != 'login.html') {
+				plus.webview.close(views[i]);
+			}
+		}
+	}, 600);
 	mui.openWindow({
 		url: 'login.html',
 		preload: true,
@@ -67,6 +87,8 @@ function login(userName,password) {
 		dataType: 'json',
 		success: function(data) {
 			if(data.status){
+//				var wobj = plus.webview.getWebviewById("my.html");
+//					wobj.reload(true); 
 				plus.nativeUI.toast('登录成功');
 				plus.storage.setItem("token",data.token);
 				plus.storage.setItem("userName",userName);
@@ -107,6 +129,90 @@ function logOut() {
 		}
 	})
 }
+//获取用户信息
+function getUserInfo() {
+	var cityDiv = document.getElementById('city'),
+		idDiv = document.getElementById('id'),
+		nameDiv = document.getElementById('name'),
+		phoneDiv = document.getElementById('phone');
+	var token = plus.storage.getItem("token");
+	mui.ajax('http://waleslee.cn/User', {
+		data: {
+			action: 'getInfo',
+			token: token
+		},
+		type: 'get',
+		dataType: 'json',
+		success: function(data) {
+			cityDiv.innerHTML = data.city;
+			nameDiv.innerHTML = data.nickName;
+			phoneDiv.innerHTML = data.phone;
+			idDiv.innerHTML = data.userName;
+			
+		},
+		error: function(xhr, type, errorThrown) {
+			plus.nativeUI.toast('获取用户信息失败');
+		}
+	})
+}
+function changePassword(oldPass,newPass) {
+	var token = plus.storage.getItem("token");
+	mui.ajax('http://waleslee.cn/User', {
+		data: {
+			action: 'changePwd',
+			token: token,
+			oldPwd: oldPass,
+			newPwd: newPass
+		},
+		type: 'get',
+		success: function(data) {
+			plus.nativeUI.toast('修改密码成功，请重新登录');
+			backLoginI();
+		},
+		error: function(xhr, type, errorThrown) {
+			plus.nativeUI.toast('修改密码失败');
+		}
+	})
+}
+//修改昵称
+function changeName(newName) {
+	var token = plus.storage.getItem("token");
+	mui.ajax('http://waleslee.cn/User', {
+		data: {
+			action: 'changeNickName',
+			token: token,
+			newName: newName
+		},
+		type: 'get',
+		success: function(data) {
+			plus.nativeUI.toast('修改昵称成功！');
+			mui.back();
+		},
+		error: function(xhr, type, errorThrown) {
+			plus.nativeUI.toast('修改昵称失败');
+		}
+	})
+}
+//修改城市
+function changeCity(city) {
+	console.log(city);
+	var token = plus.storage.getItem("token");
+	mui.ajax('http://waleslee.cn/User', {
+		data: {
+			action: 'changeCity',
+			token: token,
+			city: city
+		},
+		type: 'get',
+		success: function(data) {
+			plus.nativeUI.toast('修改城市成功！');
+			mui.back();
+		},
+		error: function(xhr, type, errorThrown) {
+			plus.nativeUI.toast('修改城市失败');
+		}
+	})
+}
 //获取今日推荐
 function getTodayList() {
 	var todayDiv = document.getElementById('today');
@@ -120,6 +226,7 @@ function getTodayList() {
 			for (var i = 0; i < data.length; i++) {
 				var div = document.createElement('div');
 				div.id = data[i].id;
+				
 				div.className = 'product';
 				div.innerHTML = '<div class="product-img"><img src="http://' + data[i].imgPath + '" /></div><div class="product-name">' + data[i].name + '</div><div class="product-other"><span class="mui-icon mui-icon-eye"></span><span>' +
 					data[i].views + '</span><span class="mui-icon mui-icon-location"></span><span>' +
@@ -136,26 +243,55 @@ function getTodayList() {
 	})
 }
 //获取科普文章列表
-function getArticle() {
+function getArticle(pullaction) {
 	var articleDiv = document.getElementById('article');
+	var isEnd = false;
 	mui.ajax(url, {
 		data: {
-			action: 'getArticleList'
+			action: 'getArticleList',
+			 pageNow:page,
+			 pageSize:8
 		},
 		type: 'get',
 		dataType: 'json',
 		success: function(data) {
-			for (var i = 0; i < data.length; i++) {
-				var div = document.createElement('div');
-				div.id = data[i].id;
-				div.className = 'article-item';
-				div.innerHTML = '<div class="article-item-img"><img src="http://' + data[i].imgPath + '" /></div><div class="article-item-info"><div class="article-item-title"><span class="article-item-type">' + data[i].type + '</span><h4>' + data[i].title + '</h4></div><div class="article-item-intr">' +
-					data[i].description + '</div></div><div class="mui-clearfix"></div>';
-				articleDiv.appendChild(div); //把数据插入到页面中
+			if(data.length == 0){
+				if(page == 1){
+					shopDiv.innerHTML = '<div class="empty">当前没有数据哦</div>'
+				}else{
+					plus.nativeUI.toast('已经没有更多科普文章了哦 ^_^');
+					isEnd = true;
+				}
+			}else{			
+				if(pullaction=='down')
+					articleDiv.innerHTML = '';
+				for (var i = 0; i < data.length; i++) {
+					var div = document.createElement('div');
+					div.id = data[i].id;
+					div.className = 'word-item';
+					div.style.background = 'url(http://' + data[i].imgPath+')';
+					div.style.backgroundSize = '100% auto';
+					div.innerHTML = '<h2>'+data[i].title+'</h2>'
+//					div.className = 'article-item';
+//					div.innerHTML = '<div class="article-item-img"><img src="http://' + data[i].imgPath + '" /></div><div class="article-item-info"><div class="article-item-title"><span class="article-item-type">' + data[i].type + '</span><h4>' + data[i].title + '</h4></div><div class="article-item-intr">' +
+//						data[i].description + '</div></div><div class="mui-clearfix"></div>';
+					articleDiv.appendChild(div); //把数据插入到页面中
+				}
+				page++;
 			}
 		},
 		error: function(xhr, type, errorThrown) {
+			console.log(xhr);
+			console.log(type);
+			console.log(errorThrown);
 			plus.nativeUI.toast('获取科普文章失败');
+		},
+		complete: function() {
+			requestEnd = true;
+			if (pullaction == 'up')
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh(isEnd);
+			else if (pullaction == 'down')
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 		}
 	})
 }
@@ -205,26 +341,49 @@ function getArticleDetail(id) {
 	})
 }
 //获取店铺列表
-function getShopList() {
+function getShopList(pullaction) {
 	var shopDiv = document.getElementById('shop');
+	var isEnd = false;
 	mui.ajax(url, {
 		data: {
-			action: 'getShopList'
+			action: 'getShopList',
+			 pageNow:page,
+			 pageSize:8
 		},
 		type: 'get',
 		dataType: 'json',
 		success: function(data) {
-			for (var i = 0; i < data.length; i++) {
-				var div = document.createElement('div');
-				div.id = data[i].id;
-				div.className = 'shop-item';
-				div.innerHTML = '<div class="shop-item-img"><img src="http://' + data[i].imgPath + '" /></div><div class="shop-item-info"><h4>' + data[i].shopName + '</h4><span class="mui-icon mui-icon-location"></span><span class="city">' + data[i].city + '</span><span class="shop-type">' + data[i].businessScope + '</span></div>';
-				shopDiv.appendChild(div); //把数据插入到页面中
+			if(data.length == 0){
+				if(page == 1){
+					shopDiv.innerHTML = '<div class="empty">当前没有数据哦</div>'
+				}else{
+					plus.nativeUI.toast('已经没有更多店铺了哦 ^_^');
+					isEnd = true;
+				}
+			}else{
+				if(pullaction=='down')
+					shopDiv.innerHTML = '';			
+				for (var i = 0; i < data.length; i++) {
+					var div = document.createElement('div');
+					div.id = data[i].id;
+					div.className = 'shop-item';
+					div.innerHTML = '<div class="shop-item-img"><img src="http://' + data[i].imgPath + '" /></div><div class="shop-item-info"><h4>' + data[i].shopName + '</h4><span class="mui-icon mui-icon-location"></span><span class="city">' + data[i].city + '</span><span class="shop-type">' + data[i].businessScope + '</span></div>';
+					shopDiv.appendChild(div); //把数据插入到页面中
+				}
+				page++;				
 			}
+
 		},
 		error: function(xhr, type, errorThrown) {
 			plus.nativeUI.toast('获取店铺失败');
-		}
+		},
+		complete: function() {
+			requestEnd = true;
+			if (pullaction == 'up')
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh(isEnd);
+			else if (pullaction == 'down')
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+		}		
 	})
 }
 //通过城市获取店铺列表
@@ -256,26 +415,63 @@ function getShopListByCity(city) {
 	})
 }
 //获取附近店铺列表
-function getNearShopList() {
-	var nearShopDiv = document.getElementById('near-shop');
+function getNearShopList(city) {
+	var nearShopDiv = document.getElementById('place');
 	mui.ajax(url, {
 		data: {
-			action: 'getShopList'
+			action: 'getShopByCity',
+			city: city
 		},
-		type: 'post',
+		type: 'get',
 		dataType: 'json',
 		success: function(data) {
-			for (var i = 0; i < data.length; i++) {
-				var div = document.createElement('div');
-				div.id = data[i].id;
-				div.className = 'article-item';
-				div.innerHTML = '';
-
-				nearShopDiv.appendChild(div); //把数据插入到页面中
-			}
-		},
+			if (data.length) {
+				for (var i = 0; i < data.length; i++) {
+					var div = document.createElement('div');
+					div.id = data[i].id;
+					div.className = 'article-item';
+					div.innerHTML = '<div class="article-item-img"><img src="http://'+ data[i].imgPath 
+					+ '" /></div><div class="article-item-info"><div class="article-item-title"><h4>'+ data[i].shopName 
+					+  '</h4></div><div class="article-item-intr">'+ data[i].description+'</div><div class="article-item-intr"><span class="shop-distance"></span><span class="shop-type">'+
+					data[i].businessScope+'</span></div></div><div class="mui-clearfix"></div>';
+					nearShopDiv.appendChild(div); //把数据插入到页面中
+				}
+			} else {
+				nearShopDiv.innerHTML = '<div class="empty">你附近还没有店铺哦</div>';
+			}			
+		}, 
 		error: function(xhr, type, errorThrown) {
-			plus.nativeUI.toast('获取店铺失败');
+			plus.nativeUI.toast('获取附近店铺失败');
+		}
+	});
+}
+//获取附近产品列表
+function getNearProductList(city) {
+	var nearProductDiv = document.getElementById('place');
+	mui.ajax(url, {
+		data: {
+			action: 'getCraftsByCity',
+			city: city
+		},
+		type: 'get',
+		dataType: 'json',
+		success: function(data) {
+			if (data.length) {
+				for (var i = 0; i < data.length; i++) {
+					var div = document.createElement('div');
+					div.id = data[i].id;
+					div.className = 'product';
+					div.innerHTML = '<div class="product-img"><img src="http://' + data[i].imgPath + '" /></div><div class="product-name">' + data[i].name + '</div><div class="product-other"><span class="mui-icon mui-icon-eye"></span><span>' +
+						data[i].views + '</span><span class="mui-icon mui-icon-location"></span><span>' +
+						data[i].city + '</span></div>';
+					nearProductDiv.appendChild(div); //把数据插入到页面中
+				}
+			} else {
+				nearProductDiv.innerHTML = '<div class="empty">你附近还没有产品哦</div>';
+			}			
+		}, 
+		error: function(xhr, type, errorThrown) {
+			plus.nativeUI.toast('获取附近产品列表失败');
 		}
 	});
 }
@@ -355,7 +551,7 @@ function shopDetail(id) {
 	});
 }
 //获取产品列表
-function getProductList() {
+function getProductList(pullaction) {
 	var productDiv = document.getElementById('product');
 	mui.ajax(url, {
 		data: {
@@ -364,6 +560,9 @@ function getProductList() {
 		type: 'get',
 		dataType: 'json',
 		success: function(data) {
+			if(pullaction=='down'){
+				productDiv.innerHTML = '';
+			}
 			for (var i = 0; i < data.length; i++) {
 				var div = document.createElement('div');
 				div.id = data[i].id;
@@ -376,6 +575,43 @@ function getProductList() {
 		},
 		error: function(xhr, type, errorThrown) {
 			plus.nativeUI.toast('获取产品列表失败');
+		},
+		complete: function() {
+			requestEnd = true;
+			 if (pullaction == 'down')
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+		}
+	})
+}
+//获取城市列表
+function getCityList() {
+	var cityDiv = document.getElementById('city');
+	mui.ajax(url, {
+		data: {
+			action: 'getCraftsCityList'
+		},
+		type: 'get',
+//		dataType: 'json',
+		success: function(data) {
+			var newString = data.slice(1,(data.length-1));
+			console.log(newString);
+			var cityList = newString.split(',');
+			if (cityList.length) {
+				for (var i = 0; i < cityList.length; i++) {
+					var div = document.createElement('div');
+					div.className = 'city-item';
+					div.innerHTML = cityList[i];
+					cityDiv.appendChild(div); //把数据插入到页面中
+				}
+			} else {
+				cityDiv.innerHTML = '<div class="empty">这里是空的哦</div>';
+			}
+		},
+		error: function(xhr, type, errorThrown) {
+			console.log(xhr)
+			console.log(type)
+			console.log(errorThrown)
+			plus.nativeUI.toast('获取城市列表失败');
 		}
 	})
 }
@@ -516,6 +752,7 @@ function productDetail(id) {
 	var thisShopDiv = document.getElementById('this-shop');
 	var buyDiv = document.getElementById('buy');
 	var goInfo = document.getElementById('go');
+	var isCollect = document.getElementById('book');
 	mui.ajax(url, {
 		data: {
 			action: 'getCraftDetails',
@@ -537,7 +774,7 @@ function productDetail(id) {
 			if(data[1]){
 				thisShopDiv.innerHTML = '<div class="shop-item" id="'+data[1].id+'"><div class="shop-item-img"><img src="http://' + data[1].imgPath + '" /></div><div class="shop-item-info"><h4>' + data[1].shopName + '</h4><span class="mui-icon mui-icon-location"></span><span class="city">' + data[1].city + '</span><span class="shop-type">' + data[1].businessScope + '</span></div></div>';
 			}
-			
+			isCollect.innerHTML = '<span class="is-collect">'+data[0].isCollected+'</span>收藏';
 		},
 		error: function(xhr, type, errorThrown) {
 			plus.nativeUI.toast('获取产品详情和所属店铺失败');
@@ -628,7 +865,6 @@ function openGoI(goPlace,goPlaceName) {
 //收藏物品
 function collect(type,id){
 	var token = plus.storage.getItem("token");
-	console.log(token);
 	mui.ajax('http://waleslee.cn/Collect', {
 		data: {
 			token:token,
@@ -641,7 +877,6 @@ function collect(type,id){
 			for(var i=2;i<data.length;i++){
 				str = str + data[i];
 			}
-			console.log(str);
 			if(data[0]=='1'){
 				plus.nativeUI.toast('收藏成功');
 			}else{
@@ -650,16 +885,40 @@ function collect(type,id){
 			
 		},
 		error: function(xhr, type, errorThrown) {
-			console.log(xhr);
-			console.log(type);
-			console.log(errorThrown);
+			plus.nativeUI.toast('收藏失败');
+		}
+	});		
+}
+//取消收藏
+function cancelCollect(type,id){
+	var token = plus.storage.getItem("token");
+	mui.ajax('http://waleslee.cn/Collect', {
+		data: {
+			action:'cancel',
+			token:token,
+			itemId:id,
+			type:type
+		},
+		type: 'post',
+		success: function(data) {
+			var str = '';
+			for(var i=2;i<data.length;i++){
+				str = str + data[i];
+			}
+			if(data[0]=='1'){
+				plus.nativeUI.toast('取消收藏成功');
+			}else{
+					plus.nativeUI.toast('取消收藏失败');
+			}
 			
+		},
+		error: function(xhr, type, errorThrown) {
 			plus.nativeUI.toast('收藏失败');
 		}
 	});		
 }
 //查看我收藏的手工艺品列表
-function getMyLike(){
+function getMyLike(pullaction){
 	var token = plus.storage.getItem("token");
 	var productDiv = document.getElementById('product');
 	mui.ajax(url, {
@@ -670,6 +929,10 @@ function getMyLike(){
 		type: 'post',
 		dataType: 'json',
 		success: function(data) {
+			if(pullaction=='down'){
+				productDiv.innerHTML = '';
+			}
+			console.log(data[0])
 			if(data[0]==1){
 				for (var i = 0; i < data[1].length; i++) {
 					var div = document.createElement('div');
@@ -687,13 +950,22 @@ function getMyLike(){
 			}
 		},
 		error: function(xhr, type, errorThrown) {
+			console.log(xhr)
+			console.log(type)
+			console.log(errorThrown)
 			plus.nativeUI.toast('获取我收藏的手工艺品失败');
+		},
+		complete: function() {
+			requestEnd = true;
+			 if (pullaction == 'down')
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 		}
 	});	
 }
 //查看我收藏的店铺列表
-function getMyLikeShop(){
+function getMyLikeShop(pullaction){
 	var token = plus.storage.getItem("token");
+	console.log(token)
 	var shopDiv = document.getElementById('shop');
 	mui.ajax(url, {
 		data: {
@@ -703,6 +975,9 @@ function getMyLikeShop(){
 		type: 'post',
 		dataType: 'json',
 		success: function(data) {
+			if(pullaction=='down'){
+				shopDiv.innerHTML = '';
+			}			
 			if(data[0]==1){
 				for (var i = 0; i < data[1].length; i++) {
 					var div = document.createElement('div');
@@ -721,7 +996,30 @@ function getMyLikeShop(){
 			}
 		},
 		error: function(xhr, type, errorThrown) {
+			console.log(xhr)
+			console.log(type)
+			console.log(errorThrown)
 			plus.nativeUI.toast('获取我收藏的店铺失败');
+		},
+		complete: function() {
+			requestEnd = true;
+			 if (pullaction == 'down')
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+		}		
+	});	
+}
+//浏览次数增加
+function addView(id){
+	mui.ajax('http://waleslee.cn/View', {
+		data: {
+			type: 'craft',
+			itemId: id
+		},
+		type: 'post',
+		success: function(data) {
+		},
+		error: function(xhr, type, errorThrown) {
+			plus.nativeUI.toast('增加浏览次数失败');
 		}
 	});	
 }

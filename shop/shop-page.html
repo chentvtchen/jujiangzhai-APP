@@ -54,11 +54,11 @@
 				//点开产品页面
 				mui('.shop-product').on('tap', '.product', function(e) {
 					var id = this.id;
+					addView(id);
 					openProductDetail(id);
 				});	
 				//点击收藏
 				document.getElementById('book').addEventListener('tap',function(){
-					console.log(isLogin());
 					if(isLogin()){
 						collect('shop',id);
 					}else{

@@ -42,31 +42,7 @@
 			var requestEnd = false;
 			//			getArticleList(page);
 			mui.plusReady(function() {
-				var timerid = setInterval(function() {
-					if (requestEnd) {
-						clearInterval(timerid);
-						plus.nativeUI.closeWaiting();
-					}
-				}, 20);
 			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-//			function pulldownRefresh() {
-//				setTimeout(function() {
-//					page = 1;
-//					mui('#pullrefresh').pullRefresh().refresh(true);
-//					getArticleList('down');
-//				}, 1000);
-//			}
-			/**
-			 * 上拉加载具体业务实现
-			 */
-//			function pullupRefresh() {
-//				setTimeout(function() {
-//					getArticleList('up');
-//				}, 1000);
-//			}
 		</script>
 	</body>
 

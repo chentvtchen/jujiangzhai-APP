@@ -191,13 +191,19 @@
 					"img/gucheng1.jpg",
 					"img/craf.jpg",
 					"img/craft.png",
-					"img/gucheng.png"
+					"img/gucheng.png",
+					"fonts/simfang.ttf",
+					"css/new.css",
+					"fonts/new.ttf"
 				],
 				"refer": [
 					"city/city-all.html",
 					"crafts/crafts-all.html",
 					"home/article.html",
-					"product/product-page.html"
+					"product/product-page.html",
+					"home/product-all.html",
+					"crafts/crafts-sigle-head.html",
+					"home/product-head.html"
 				],
 				"priority": 0
 			},
@@ -211,13 +217,18 @@
 					"css/style.css",
 					"fonts/iconfont.ttf",
 					"js/page.js",
-					"js/all.js"
+					"js/all.js",
+					"css/simfang.css",
+					"img/logo.png",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"my.html",
 					"near-shop.html",
 					"shop.html",
-					"home/home-search-head.html"
+					"home/home-search-head.html",
+					"near.html",
+					"city/city-all.html"
 				],
 				"priority": 0
 			},
@@ -232,7 +243,8 @@
 					"fonts/iconfont.ttf",
 					"img/touxiang.png",
 					"js/page.js",
-					"js/all.js"
+					"js/all.js",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"my/my-book-head.html",
@@ -253,7 +265,9 @@
 					"css/iconfont.css",
 					"css/style.css",
 					"js/page.js",
-					"js/all.js"
+					"js/all.js",
+					"fonts/simfang.ttf",
+					"fonts/iconfont.ttf"
 				],
 				"refer": [
 					"city/city-sigle-head.html"
@@ -278,7 +292,9 @@
 					"img/jianzhi.png",
 					"img/fengz.png",
 					"img/cixiu1.png",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"crafts/crafts-all-tab.html",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"crafts/crafts-sigle-head.html"
@@ -295,7 +311,8 @@
 					"img/tangren01.jpg",
 					"js/page.js",
 					"js/all.js",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"product/product-page.html"
@@ -331,7 +348,8 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"css/style.css",
-					"js/all.js"
+					"js/all.js",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"shop/shop-page.html",
@@ -350,7 +368,8 @@
 					"img/tangren01.jpg",
 					"js/page.js",
 					"js/all.js",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"product/product-page.html",
@@ -404,7 +423,8 @@
 					"css/mui.min.css",
 					"css/style.css",
 					"js/page.js",
-					"js/all.js"
+					"js/all.js",
+					"fonts/simfang.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -561,7 +581,8 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"js/page.js",
-					"js/all.js"
+					"js/all.js",
+					"fonts/simfang.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -577,9 +598,12 @@
 					"css/iconfont.css",
 					"css/style.css",
 					"fonts/iconfont.ttf",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"fonts/simfang.ttf"
 				],
-				"refer": [],
+				"refer": [
+					"product/product-page.html"
+				],
 				"priority": 0
 			},
 			"my/my-footer-shop.html": {
@@ -625,9 +649,12 @@
 					"css/style.css",
 					"js/all.js",
 					"fonts/iconfont.ttf",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"fonts/simfang.ttf"
 				],
-				"refer": [],
+				"refer": [
+					"shop/shop-page.html"
+				],
 				"priority": 0
 			},
 			"login.html": {
@@ -639,7 +666,8 @@
 					"js/mui.min.js",
 					"fonts/iconfont.ttf",
 					"js/page.js",
-					"js/all.js"
+					"js/all.js",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"index.html",
@@ -666,7 +694,9 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"js/all.js",
-					"img/3.jpg"
+					"img/3.jpg",
+					"css/simfang.css",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"index.html"
@@ -729,7 +759,8 @@
 					"css/mui.min.css",
 					"css/style.css",
 					"js/page.js",
-					"js/all.js"
+					"js/all.js",
+					"fonts/simfang.ttf"
 				],
 				"refer": [
 					"login.html"
@@ -770,7 +801,181 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"css/style.css",
+					"js/all.js",
+					"img/touxiang.png",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"change/change-city.html",
+					"change/change-name.html"
+				],
+				"priority": 0
+			},
+			"crafts/crafts-all-tab.html": {
+				"resources": [
+					"crafts/crafts-all-high.html",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"crafts/crafts-all-folk.html"
+				],
+				"priority": 0
+			},
+			"crafts/crafts-all-folk.html": {
+				"resources": [
+					"img/zhongguojie.png",
+					"img/fengz.png",
+					"img/jianzhi.png",
+					"img/cixiu1.png",
+					"js/mui.min.js",
+					"js/page.js",
+					"css/mui.min.css",
+					"img/chuitangren.png",
+					"img/layi.png",
+					"js/all.js",
+					"img/caobian.png",
+					"img/xiaoshi.png",
+					"img/buyi.png",
+					"img/shipin.png",
+					"img/xiju.png",
+					"img/nisu.png",
+					"img/bianzhi.png",
+					"css/style.css",
+					"css/iconfont.css",
+					"fonts/simfang.ttf",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"crafts/crafts-sigle-head.html"
+				],
+				"priority": 0
+			},
+			"crafts/crafts-all-high.html": {
+				"resources": [
+					"img/ciqi.png",
+					"img/songjin.png",
+					"img/weidiao.png",
+					"img/yu.png",
+					"img/hanfu.png",
+					"img/tongqi.png",
+					"img/jiaju.png",
+					"img/chaju.png",
+					"js/mui.min.js",
+					"img/taoci.png",
+					"js/page.js",
+					"css/mui.min.css",
+					"img/yushi.png",
+					"img/wenwan.png",
+					"img/layi.png",
+					"js/all.js",
+					"fonts/iconfont.ttf",
+					"css/style.css",
+					"css/iconfont.css"
+				],
+				"refer": [
+					"crafts/crafts-sigle-head.html"
+				],
+				"priority": 0
+			},
+			"change/change-city.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"js/page.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
 					"js/all.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"change/change-name.html": {
+				"resources": [
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"near.html": {
+				"resources": [
+					"near/near-shop.html",
+					"js/mui.min.js",
+					"fonts/simfang.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/iconfont.ttf",
+					"js/page.js",
+					"js/all.js"
+				],
+				"refer": [
+					"near/near-product.html"
+				],
+				"priority": 0
+			},
+			"near/near-shop.html": {
+				"resources": [
+					"js/page.js",
+					"js/all.js",
+					"js/mui.min.js",
+					"fonts/simfang.ttf",
+					"css/iconfont.css",
+					"css/style.css",
+					"fonts/iconfont.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"shop/shop-page.html"
+				],
+				"priority": 0
+			},
+			"near/near-product.html": {
+				"resources": [
+					"js/mui.min.js",
+					"js/page.js",
+					"css/iconfont.css",
+					"css/style.css",
+					"js/all.js",
+					"fonts/simfang.ttf",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"home/product-all.html": {
+				"resources": [
+					"css/mui.min.css",
+					"js/mui.min.js",
+					"fonts/simfang.ttf",
+					"fonts/mui.ttf",
+					"js/page.js",
+					"css/iconfont.css",
+					"css/style.css",
+					"js/all.js",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"product/product-page.html"
+				],
+				"priority": 0
+			},
+			"home/product-head.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/simfang.ttf",
+					"fonts/mui.ttf",
+					"js/page.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"home/product-all.html",
+					"js/all.js",
+					"fonts/iconfont.ttf"
 				],
 				"refer": [],
 				"priority": 0

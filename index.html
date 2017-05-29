@@ -33,7 +33,7 @@
 	<body>
 		<header class="mui-bar mui-bar-nav" id="nav">
 			<div class="home">
-				<div class="name">聚匠斋</div>
+				<img src="img/logo.png"/>
 				<span class="mui-icon mui-icon-search mui-pull-right" id="search"></span>
 			</div>
 		</header>
@@ -42,7 +42,7 @@
 				<span class="icon iconfont icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			<a class="mui-tab-item" href="near-shop.html">
+			<a class="mui-tab-item" href="near.html">
 				<span class="icon iconfont icon-faxian"></span>
 				<span class="mui-tab-label">附近</span>
 			</a>
@@ -59,10 +59,13 @@
 		<script type="text/javascript" src="js/all.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script src="js/page.js"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=4682b9f4708f294a4f76f4771acb87c1&plugin"></script> 		
+		
 		<script type="text/javascript" charset="utf-8">
+		 
 			 //mui初始化s
 			mui.init();
-			var subpages = ['home/home-list.html', 'near-shop.html','shop.html', 'my.html'];
+			var subpages = ['home/home-list.html', 'near.html','shop.html', 'my.html'];
 			var subpage_style = {
 				top: '45px',
 				bottom: '51px'
@@ -72,7 +75,6 @@
 			
 			 //创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
-			  
 				var cur = plus.webview.currentWebview();
 //				var cookie = plus.navigator.getCookie(url);
 //				if (cookie == null || cookie.indexOf('userinfo=') == -1) {
@@ -121,8 +123,7 @@
 				//更换标题
 				if(targetTab){
 					if(targetTab == subpages[0]){
-						nav.innerHTML = '<div class="home"><div class="name">'+'聚匠斋'
-						+'</div><span class="mui-icon mui-icon-search mui-pull-right" id="search"></span></div>';
+						nav.innerHTML = '<div class="home"><img src="img/logo.png"/><span class="mui-icon mui-icon-search mui-pull-right" id="search"></span></div>';
 						document.getElementsByClassName('mui-icon-search')[0].addEventListener('tap',function(){
 								mui.openWindow({
 									id: 'home-search-head',
@@ -135,6 +136,14 @@
 									}
 								});	
 						})						
+					}else if(targetTab == subpages[1]){
+						nav.innerHTML = '<h1 id="title" class="mui-title">附近</h1><span class="mui-pull-right other-city" id="other-city">所有城市</span>';
+						document.getElementsByClassName('other-city')[0].addEventListener('tap',function(){
+							mui.openWindow({
+								id: 'city',
+								url: 'city/city-all.html',
+							})
+						})
 					}else{
 						nav.innerHTML =' <h1 id="title" class="mui-title">'+this.querySelector('.mui-tab-label').innerHTML+'</h1>';
 					}
