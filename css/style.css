@@ -80,6 +80,7 @@ nav.mui-bar{
 .white{
 	color: #fff;
 }
+
 .change-school label~select{
 	width: 82%;
 }
@@ -264,7 +265,7 @@ nav.mui-bar{
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.service span.icon,.message span.icon{
+.service span.icon,.service span.mui-icon,.message span.icon{
 	margin-right: 5px;
 	color: #666;
 }
@@ -754,4 +755,57 @@ nav.mui-bar{
 	font-weight: 500;
 	font-size: 18px;
 	padding: 50px;
+}
+.commont{
+	background-color: #fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+.commont-left{
+	width: 20%;
+	float: left;
+}
+.commont-left img{
+	width: 60%;
+	margin-left: 20%;
+	border-radius: 50%;
+}
+.commont-right{
+	width: 76%;
+	float: left;
+}
+.commont-right h2{
+	margin-top: 0;
+	font-size: 14px;
+}
+.commont-right h2 span{
+	margin-right: 4%;
+	font-size: 12px;
+	font-weight: 500;
+	color: #999;
+}
+.commont-right p{
+	font-size: 12px;
+	margin-bottom: 0;
+}
+.add-commont{
+	padding: 10px;
+	background-color: #fff;
+}
+.add-commont textarea{
+	border-radius: 8px;
+	background-color: #eee;
+	font-size: 14px;
+	height: 100px;
+}
+.add-commont .add-commont-btn{
+	height: 30px;
+	font-size: 12px;
+}
+
+.chart {
+	height: 200px;
+	margin: 0px;
+	padding: 0px;
 }

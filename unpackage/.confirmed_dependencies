@@ -75,7 +75,8 @@
 			"login.html",
 			"my/my-feedback.html",
 			"my/my-change-password.html",
-			"my/my-infomation.html"
+			"my/my-infomation.html",
+			"my/chart.html"
 		]
 	},
 	"city/city-all.html": {
@@ -148,12 +149,15 @@
 			"css/style.css",
 			"js/page.js",
 			"js/all.js",
-			"fonts/iconfont.ttf"
+			"fonts/iconfont.ttf",
+			"fonts/simfang.ttf",
+			"img/touxiang.png"
 		],
 		"refer": [
 			"shop/buy.html",
 			"shop/shop-page.html",
-			"shop/navgation.html"
+			"shop/navgation.html",
+			"login.html"
 		]
 	},
 	"shop.html": {
@@ -549,7 +553,8 @@
 			"fonts/mui.ttf",
 			"js/page.js",
 			"js/all.js",
-			"js/gps.js"
+			"js/gps.js",
+			"fonts/simfang.ttf"
 		]
 	},
 	"login/register.html": {
@@ -702,7 +707,8 @@
 		],
 		"refer": [
 			"near/near-shop.html",
-			"near/near-product.html"
+			"near/near-product.html",
+			"shop/shop-page.html"
 		]
 	},
 	"near/near-shop.html": {
@@ -764,6 +770,17 @@
 		],
 		"refer": [
 			"home/product-all.html"
+		]
+	},
+	"my/chart.html": {
+		"resources": [
+			"js/echarts-all.js",
+			"js/mui.min.js",
+			"js/page.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/all.js"
 		]
 	}
 }

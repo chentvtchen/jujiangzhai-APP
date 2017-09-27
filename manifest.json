@@ -253,7 +253,8 @@
 					"login.html",
 					"my/my-feedback.html",
 					"my/my-change-password.html",
-					"my/my-infomation.html"
+					"my/my-infomation.html",
+					"my/chart.html"
 				],
 				"priority": 0
 			},
@@ -329,12 +330,15 @@
 					"css/style.css",
 					"js/page.js",
 					"js/all.js",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"fonts/simfang.ttf",
+					"img/touxiang.png"
 				],
 				"refer": [
 					"shop/buy.html",
 					"shop/shop-page.html",
-					"shop/navgation.html"
+					"shop/navgation.html",
+					"login.html"
 				],
 				"priority": 0
 			},
@@ -746,7 +750,8 @@
 					"fonts/mui.ttf",
 					"js/page.js",
 					"js/all.js",
-					"js/gps.js"
+					"js/gps.js",
+					"fonts/simfang.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -912,7 +917,8 @@
 					"js/all.js"
 				],
 				"refer": [
-					"near/near-product.html"
+					"near/near-product.html",
+					"shop/shop-page.html"
 				],
 				"priority": 0
 			},
@@ -976,6 +982,19 @@
 					"home/product-all.html",
 					"js/all.js",
 					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"my/chart.html": {
+				"resources": [
+					"js/echarts-all.js",
+					"js/mui.min.js",
+					"js/page.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/all.js"
 				],
 				"refer": [],
 				"priority": 0

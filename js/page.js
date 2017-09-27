@@ -7,9 +7,9 @@ function backLogin(){
 			plus.navigator.closeSplashscreen();
 			var views = plus.webview.all();
 			for (var i = 0; i < views.length; i++) {
-					if (views[i].id != 'login.html') {
-				plus.webview.close(views[i]);
-			}
+				if (views[i].id != 'login.html') {
+					plus.webview.close(views[i]);
+				}
 		}
 	}, 600);
 	mui.openWindow({
@@ -87,8 +87,6 @@ function login(userName,password) {
 		dataType: 'json',
 		success: function(data) {
 			if(data.status){
-//				var wobj = plus.webview.getWebviewById("my.html");
-//					wobj.reload(true); 
 				plus.nativeUI.toast('登录成功');
 				plus.storage.setItem("token",data.token);
 				plus.storage.setItem("userName",userName);
@@ -148,6 +146,7 @@ function getUserInfo() {
 			nameDiv.innerHTML = data.nickName;
 			phoneDiv.innerHTML = data.phone;
 			idDiv.innerHTML = data.userName;
+			localStorage.setItem('userName',data.userName);
 			
 		},
 		error: function(xhr, type, errorThrown) {

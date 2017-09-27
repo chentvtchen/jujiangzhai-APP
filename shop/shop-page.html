@@ -24,8 +24,17 @@
 			<div class="header">
 				店家产品
 			</div>
-			<div class="shop-product" id="product">
+			<div class="this-shop-product" id="product">
+			</div>
+			<div class="header">
+				评论
+			</div>
+			<div id="commont">			
 				
+			</div>
+			<div class="add-commont this-shop mui-clearfix">
+				<textarea id="commont-value" placeholder="发表你的看法吧"></textarea>
+				<button class="add-commont-btn mui-pull-right" id="send-commont">发表</button>
 			</div>
 			<div class="action-button">
 				<div class="action-button-item book" id="book">
@@ -52,7 +61,7 @@
 				var id = self.shopid;
 				shopDetail(id);
 				//点开产品页面
-				mui('.shop-product').on('tap', '.product', function(e) {
+				mui('.this-shop-product').on('tap', '.product', function(e) {
 					var id = this.id;
 					addView(id);
 					openProductDetail(id);
@@ -66,7 +75,6 @@
 						backLogin();						
 						
 					}
-					
 				})				
 				//点开购买页面
 				document.getElementById('buy').addEventListener('tap',function(){
@@ -77,6 +85,16 @@
 					var placeDetail = this.getElementsByTagName('span')[0].innerText;
 					var city = document.getElementsByClassName('city')[0].innerText;
 					openGo(placeDetail,city);
+				})				
+				//评论
+				document.getElementById('send-commont').addEventListener('tap',function(){
+					var userName = localStorage.getItem('userName');
+					if(isLogin()){
+						addCommont();
+					}else{
+						plus.nativeUI.toast('请登录');
+						backLogin();
+					}
 				})
 			});
 		</script>
